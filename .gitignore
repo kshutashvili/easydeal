@@ -1,0 +1,8 @@
+*.*~
+*.log
+*.pot
+*.pyc
+*.py~
+*.sublime-project
+*.sublime-workspace
+/easydeal/local_settings.py
