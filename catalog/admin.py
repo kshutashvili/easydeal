@@ -1,19 +1,26 @@
 from django.contrib import admin
-from .models import State, Property
+from .models import District, Property, PropertyPhoto
+
+
+class PropertyPhotoLine(admin.TabularInline):
+    model = PropertyPhoto
+    extra = 1
 
 
 class PropertyAdmin(admin.ModelAdmin):
     list_display = (
-        'property_type',
         'name',
-        'state',
+        'property_type',
+        'district',
         'distance_to_beach',
-        'living_space',
+        'space',
         'number_of_bedrooms',
         'additional_info',
         'price'
     )
+    list_filter = ['property_type']
+    inlines = [PropertyPhotoLine]
 
 
-admin.site.register(State)
+admin.site.register(District)
 admin.site.register(Property, PropertyAdmin)
