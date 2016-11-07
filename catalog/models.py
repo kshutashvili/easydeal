@@ -81,12 +81,9 @@ class Property(models.Model):
     )
 
     def __unicode__(self):
-        return '%s %s %s %s %s %s %s' % (
+        return '%s %s %s %s' % (
             self.name,
             self.property_type,
             self.district,
-            self.distance_to_beach,
-            self.space,
-            self.number_of_bedrooms,
             self.price
         )
