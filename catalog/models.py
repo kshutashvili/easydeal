@@ -7,10 +7,14 @@ from django.utils.translation import ugettext_lazy as _
 
 
 def property_directory_path(instance, photo):
-    return 'catalog/property_%s/%s' % (instance.real_property.id, photo)
+    return 'catalog/%s/%s' % (instance.property_id, photo)
 
 
 class District(models.Model):
+    class Meta:
+        verbose_name = _('Район')
+        verbose_name_plural = _('Районы')
+
     name = models.CharField(
         verbose_name=_('Район'),
         max_length=250
@@ -21,14 +25,25 @@ class District(models.Model):
 
 
 class PropertyPhoto(models.Model):
-    real_property = models.ForeignKey('Property')
+    class Meta:
+        verbose_name = _('Фотография недвижимости')
+        verbose_name_plural = _('Фотографии недвижимости')
+
+    property = models.ForeignKey('Property')
     image = models.ImageField(
         verbose_name=_('Фото'),
         upload_to=property_directory_path
     )
 
+    def __unicode__(self):
+        return '%s %s' % (self.property, self.image)
+
 
 class Property(models.Model):
+    class Meta:
+        verbose_name = _('Недвижимость')
+        verbose_name_plural = _('Недвижимость')
+
     TYPE = (
         ('c', 'condominium'),
         ('t', 'townhouse'),
@@ -41,7 +56,7 @@ class Property(models.Model):
         blank=False
     )
     name = models.CharField(verbose_name=_(u'Имя'), max_length=100)
-    district = models.ForeignKey(District, null=True)
+    district = models.ForeignKey(District, null=True, verbose_name=_('Район'))
     # means in square meters
     distance_to_beach = models.PositiveIntegerField(
         verbose_name=_('Расстояние до пляжа')
@@ -64,3 +79,14 @@ class Property(models.Model):
         max_digits=10,
         decimal_places=2
     )
+
+    def __unicode__(self):
+        return '%s %s %s %s %s %s %s' % (
+            self.name,
+            self.property_type,
+            self.district,
+            self.distance_to_beach,
+            self.space,
+            self.number_of_bedrooms,
+            self.price
+        )
