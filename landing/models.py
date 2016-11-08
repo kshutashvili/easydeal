@@ -6,6 +6,7 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import ugettext_lazy as _
 from catalog.models import Property, District
+from django.contrib.sessions.models import Session
 
 
 class Article(models.Model):
@@ -68,6 +69,7 @@ class ChoiceInfo(models.Model):
         verbose_name=_('Время последнего обновления'),
         auto_now=True
     )
+    session_key = models.OneToOneField(Session)
 
     def __unicode__(self):
         return '%s' % self.id
