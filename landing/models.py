@@ -7,6 +7,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import ugettext_lazy as _
 from catalog.models import Property, District
 from django.contrib.sessions.models import Session
+from ckeditor.fields import RichTextField
 
 
 class Article(models.Model):
@@ -18,7 +19,7 @@ class Article(models.Model):
         verbose_name=_('Заголовок'),
         max_length=50,
         blank=False)
-    text = models.TextField(
+    text = RichTextField(
         verbose_name=_('Текст'),
         max_length=200,
         blank=False

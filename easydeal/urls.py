@@ -20,7 +20,7 @@ from django.conf.urls import include
 
 
 urlpatterns = [
-    
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 

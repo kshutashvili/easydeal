@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'phonenumber_field',
+    'ckeditor',
+    'ckeditor_uploader',
 
     'landing',
     'catalog',
@@ -143,6 +145,35 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
+
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+            'toolbar_Custom': [
+                {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord',
+                        '-', 'Undo', 'Redo'
+                    ]
+                },
+                {'name': 'basicstyles', 'items': ['Bold', 'Italic', 'Underline', '-', 'RemoveFormat']},
+                {'name': 'paragraph', 'items': ['NumberedList', 'BulletedList', '-',
+                                    'Outdent', 'Indent', '-',
+                                    'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-',
+                                    'Blockquote']},
+                {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+                {'name': 'insert', 'items': ['Image', 'Table', 'HorizontalRule', 'SpecialChar']},
+                {'name': 'styles', 'items': ['Styles', 'Format']},
+                {'name': 'editing', 'items': ['Scayt']},
+                {'name': 'tools', 'items': ['Maximize']},
+                {'name': 'document', 'items': ['Source']}
+        ]
+    }
+}
 
 try:
     from local_settings import *
