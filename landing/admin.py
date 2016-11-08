@@ -35,7 +35,6 @@ class ChoiceInfoAdmin(admin.ModelAdmin):
         STR_END = '...'
         districts = sorted([str(i) for i in obj.districts.all()])
         result = ', '.join(districts)
-        print result[:DISPLAY_WIDTH - len(STR_END)] + STR_END
         if len(result) <= DISPLAY_WIDTH:
             return result
         else:

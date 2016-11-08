@@ -42,8 +42,8 @@ class Article(models.Model):
 
 class ChoiceInfo(models.Model):
     class Meta:
-        verbose_name = _('Данные о выборе')
-        verbose_name_plural = _('Данные о выборах')
+        verbose_name = _('Данные о выборе пользователя')
+        verbose_name_plural = _('Данные о выборе пользователей')
 
     is_accommodation = models.BooleanField(
         verbose_name=_('Интересует ли проживание'),
