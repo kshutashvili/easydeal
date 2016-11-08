@@ -69,7 +69,10 @@ class ChoiceInfo(models.Model):
         verbose_name=_('Время последнего обновления'),
         auto_now=True
     )
-    session_key = models.OneToOneField(Session)
+    session_key = models.OneToOneField(
+        Session,
+        null=True
+    )
 
     def __unicode__(self):
         return '%s' % self.id
