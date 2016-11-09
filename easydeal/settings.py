@@ -43,9 +43,11 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'ckeditor',
     'ckeditor_uploader',
+    'solo',
 
     'landing',
     'catalog',
+    'config',
 ]
 
 MIDDLEWARE = [

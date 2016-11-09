@@ -8,6 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 from catalog.models import Property, District
 from django.contrib.sessions.models import Session
 from ckeditor.fields import RichTextField
+from django.urls import reverse
 
 
 class Article(models.Model):
@@ -32,6 +33,10 @@ class Article(models.Model):
     )
     date = models.DateTimeField(verbose_name=_('Дата'), auto_now_add=True)
     is_published = models.BooleanField(default=False)
+
+    def get_absolute_url(self):
+        pass
+        # return reverse('func_name', args=[str(self.id)])
 
     def __unicode__(self):
         return '%s %s %s %s' % (
