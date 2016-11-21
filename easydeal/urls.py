@@ -27,5 +27,6 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r'^', include('catalog.urls')),
+    url(r'^', include('config.urls', namespace='config')),
     url(r'^admin/', admin.site.urls),
 )

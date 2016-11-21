@@ -27,12 +27,10 @@
                     <a>КОНТАКТЫ</a>
                 </menu>
                 <div class="setting-group">
-                    <select>
-                        <option>USD</option>
-                        <option>RUB</option>
-                        <option>EUR</option>
-                        <option>THB</option>
-                    </select>
+                    <form action="{% url 'config:set_currency' %}" method="POST">
+                        {% csrf_token %}
+                        {{ choose_currency_form.as_p }}
+                    </form>
 
                     <form action="{% url 'set_language' %}" method="post">
                         {% csrf_token %}
@@ -60,12 +58,10 @@
             </div>
 
             <div class="setting-group visible-lg col-lg-2">
-                <select>
-                    <option>USD</option>
-                    <option>RUB</option>
-                    <option>EUR</option>
-                    <option>THB</option>
-                </select>
+                <form action="{% url 'config:set_currency' %}" method="POST">
+                    {% csrf_token %}
+                    {{ choose_currency_form.as_p }}
+                </form>
                 <form action="{% url 'set_language' %}" method="post">
                     {% csrf_token %}
                     {% get_available_languages as LANGUAGES %}

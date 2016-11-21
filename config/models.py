@@ -41,6 +41,21 @@ class SiteConfiguration(SingletonModel):
         null=True,
         blank=True
     )
+    usd_rate = models.DecimalField(
+        verbose_name=_('Курс доллара к бату'),
+        max_digits=10,
+        decimal_places=2
+    )
+    euro_rate = models.DecimalField(
+        verbose_name=_('Курс евро к бату'),
+        max_digits=10,
+        decimal_places=2
+    )
+    rub_rate = models.DecimalField(
+        verbose_name=_('Курс рубля к бату'),
+        max_digits=10,
+        decimal_places=2
+    )
 
     def __unicode__(self):
         return 'Site Configuration'
