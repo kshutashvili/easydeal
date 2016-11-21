@@ -20,11 +20,12 @@ from django.conf.urls import include
 
 
 urlpatterns = [
-    url(r'^', include('catalog.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 ]
 
 
 urlpatterns += i18n_patterns(
+    url(r'^', include('catalog.urls')),
     url(r'^admin/', admin.site.urls),
 )
