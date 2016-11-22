@@ -7,4 +7,4 @@
 *.sublime-workspace
 /easydeal/local_settings.py
 media
-static
+staticfiles
