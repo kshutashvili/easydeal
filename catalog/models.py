@@ -87,3 +87,9 @@ class Property(models.Model):
             self.district,
             self.price
         )
+
+    def get_images(self):
+        return PropertyPhoto.objects.filter(property=self)
+
+    def get_title_image(self):
+        return self.get_images().first()
