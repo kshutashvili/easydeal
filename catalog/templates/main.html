@@ -5,45 +5,7 @@
 {% block content %}
     <div class="content content-padding">
         <!--FILTER_FORM BEGIN-->
-        <div class="filter-form">
-            <form>
-                <div class="row m-b-25">
-                    <div class="col-md-3 col-sm-6 filter-group">
-                        <p>Тип недвижимости</p>
-                        <input class="filter-input" type="text" placeholder="Все">
-                    </div>
-                    <div class="col-md-3 col-sm-6 filter-group">
-                        <p>Район</p>
-                        <input class="filter-input" type="text" placeholder="Все">
-                    </div>
-                    <div class="col-md-3 col-sm-6 filter-group">
-                        <p>Количество спален</p>
-                        <div class="row">
-                            <div class="col-xs-6 filter-group">
-                                <select class="filter-input"><option>Min</option></select>
-                            </div>
-                            <div class="col-xs-6 filter-group">
-                                <select class="filter-input col-xs-6"><option>Max</option></select>
-                            </div>
-                       </div>
-                   </div>
-                    <div class="col-md-3 col-sm-6 filter-group">
-                        <p>Количество спален</p>
-                        <div class="row">
-                            <div class="col-xs-6 filter-group">
-                                <select class="filter-input"><option>Min</option></select>
-                            </div>
-                            <div class="col-xs-6 filter-group">
-                                <select class="filter-input col-xs-6"><option>Max</option></select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <button class="btn-sbmt">ПОДОБРАТЬ</button>
-                </div>
-            </form>
-        </div>
+        {% include 'filter_form.html' with filter_form=filter_form %}
         <!--FILTER_FORM END-->
 
         <div class="">

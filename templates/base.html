@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load static %}
+{% load sekizai_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -145,5 +146,9 @@
             $("header").outerHeight($(".slider").height());
         })
     </script>
+    {% render_block 'js' %}
+    {% block js %}
+
+    {% endblock %}
 </body>
 </html>

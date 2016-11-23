@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'solo',
+    'sekizai',
 
     'landing',
     'catalog',
@@ -77,6 +78,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'config.context_processors.choose_currency',
+                'sekizai.context_processors.sekizai',
             ],
         },
     },
