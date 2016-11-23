@@ -1,0 +1,104 @@
+{% extends 'catalog/base.html' %}
+{% load static %}
+{% load imagefit %}
+{% block title %}Каталог{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/lightslider.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="full-offer row">
+        <div class="full-offer-info col-sm-4 col-xs-12">
+            <p class="full-offer-title">
+                PHUKET WORLD RESORT HOTEL
+            </p>
+            <p class="full-offer-apart">апартаменты класса люкс</p>
+            <div class="full-offer-charact">
+                <p>район: <span class="red-color">{{ property.district }}</span></p>
+                <p>завершение строительства: <span class="red-color"><nobr>май-апрель</nobr> 2017</span></p>
+                <p>расстояние до пляжа: <span class="red-color">{{ property.distance_to_beach }} км</span></p>
+                <p>общая площадь: <span class="red-color">{{ property.space }} м<sup>2</sup></span></p>
+                <p>количество спален: <span class="red-color">{{ property.number_of_bedrooms }}</span></p>
+                <p>{{ property.additional_info }}</p>
+            </div>
+        </div>
+        <div class="full-offer-gallery col-sm-8 col-xs-12">
+            <div class="clearfix">
+                <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                    {% for photo in property.propertyphoto_set.all %}
+                        <li data-thumb="{{ photo.image.url|resize:'thumbnail' }}">
+                            <img src="{{ photo.image.url }}" />
+                    {% endfor %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="cur-block state-news">
+        <p class="block-h">СТАТЬИ И НОВОСТИ</p>
+        <div class="row m-0">
+            <div class="col-sm-6 col-xs-12 wrap-nws">
+                <div class="perehod"></div>
+                <div class="news-block">
+                    <p class="news-title">Лучшие экскурсии на острове Пхукете</p>
+                    <p class="news-date">31 октября / 2016</p>
+                    <div class="news-text">
+                        Пхукет расположен у западного побережья Таиланда, в Андаманском море. Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами.
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12 wrap-nws">
+                <div class="perehod"></div>
+                <div class="news-block">
+                    <p class="news-title">Лучшие экскурсии на острове Пхукете этим летом</p>
+                    <p class="news-date">31 октября / 2016</p>
+                    <div class="news-text">
+                        Пхукет расположен у западного побережья Таиланда, в Андаманском море. Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center m-t-35"><button class="btn-all">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></div>
+    </div>
+{% endblock %}
+{% block extra_js %}
+    <script src="{% static 'js/lightslider.js' %}"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#image-gallery').lightSlider({
+                gallery:true,
+                item:1,
+                thumbItem:4,
+                slideMargin: 0,
+                speed:500,
+                auto:true,
+                loop:true,
+                addClass: "supers",
+                paddingRight:15,
+                galleryMargin: 0,
+                onSliderLoad: function() {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
+            });
+
+            $('select').niceSelect();
+
+        });
+        $("header").outerHeight($(".slider").height());
+        $('.carousel').carousel();
+
+        $("#mobile-menu").on("click",function () {
+            $(".slidebar").css({"left":"0px"});
+        });
+
+        $("#close-mobile-menu").on("click", function () {
+            $(".slidebar").css({"left":-1*$(".slidebar").outerWidth()+"px"})
+        });
+
+        $(document).resize(function () {
+            alert("resize");
+            $("header").outerHeight($(".slider").height());
+        })
+    </script>
+{% endblock %}

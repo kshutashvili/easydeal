@@ -11,12 +11,12 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import tempfile
 from django.utils.translation import ugettext_lazy as _
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -28,7 +28,6 @@ SECRET_KEY = '0up2y_*&%jppw&9rzm6!dfp*-n#o@km+9k@o$5sfxr8$+%vb%f'
 DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
 
 # Application definition
 
@@ -44,6 +43,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'solo',
+    'imagefit',
 
     'landing',
     'catalog',
@@ -147,6 +147,27 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
+
+IMAGEFIT_CACHE_BACKEND_NAME = 'imagefit'
+
+IMAGEFIT_CACHE_ENABLED = True
+
+IMAGEFIT_EXT_TO_FORMAT = {'.jpg': 'jpeg', '.bmp': 'png'}
+
+IMAGEFIT_PRESETS = {
+    'thumbnail': {'width': 155, 'height': 103}
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    },
+    'imagefit': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(tempfile.gettempdir(), 'django_imagefit')
+    }
+}
 
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 

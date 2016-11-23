@@ -17,13 +17,17 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls import include
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-]
+    url(r'^imagefit/', include('imagefit.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 urlpatterns += i18n_patterns(
     url(r'^admin/', admin.site.urls),
+    url(r'^catalog/', include('catalog.urls')),
 )
