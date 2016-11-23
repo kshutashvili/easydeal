@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'solo',
     'imagefit',
+    'sekizai',
 
     'landing',
     'catalog',
@@ -66,7 +67,9 @@ ROOT_URLCONF = 'easydeal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,6 +77,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'config.context_processors.choose_currency',
+                'sekizai.context_processors.sekizai',
             ],
         },
     },
@@ -141,8 +146,6 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),

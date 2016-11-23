@@ -1,13 +1,21 @@
 from django import forms
-from .models import SiteConfiguration
+
+from collections import OrderedDict
 
 
-class ChoicesForm(forms.ModelForm):
-    class Meta:
-        model = SiteConfiguration
-
-    def __init__(self, *args, **kwargs):
-        super(FooForm, self).__init__(*args, **kwargs)
-        current_state = self.instance.state
-        ...construct available_choices based on current state...
-        self.fields['state'].choices = available_choices
+class SelectCurrencyForm(forms.Form):
+    CURRENCIES = (
+        ('USD', 'USD'),
+        ('RUB', 'RUB'),
+        ('EUR', 'EUR'),
+        ('THB', 'THB'),
+    )
+    currency = forms.ChoiceField(
+        choices=CURRENCIES,
+        label='',
+        widget=forms.Select(
+            attrs={
+                'onchange': 'if(this.value != 0) { this.form.submit(); }'
+            }
+        ),
+    )

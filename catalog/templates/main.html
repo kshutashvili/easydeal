@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <div class="content content-padding">
+        <!--FILTER_FORM BEGIN-->
+        {% include 'filter_form.html' with filter_form=filter_form %}
+        <!--FILTER_FORM END-->
+
+        <div class="">
+            <!--MAP BEGIN-->
+            <div class="map hidden-sm hidden-xs">
+                <img src="{% static "images/map.png" %}" width="295px">
+                <a id="point-1" class="point" href="#"></a>
+                <a id="point-2" class="point" href="#"></a>
+                <a id="point-3" class="point" href="#"></a>
+                <a id="point-4" class="point" href="#"></a>
+                <a id="point-5" class="point" href="#"></a>
+                <a id="point-6" class="point" href="#"></a>
+                <a id="point-7" class="point" href="#"></a>
+                <a id="point-8" class="point" href="#"></a>
+                <a id="point-9" class="point" href="#"></a>
+                <a id="point-10" class="point" href="#"></a>
+            </div>
+            <!--MAP END-->
+            <div class="curort-description">
+                <div class="cur-block">
+                    <p class="block-h">ТАЙЛАНДСКИЙ КУРОРТ - ПХУКЕТ</p>
+                    <p class="main-text">
+                        Пхукет расположен у западного побережья Таиланда, в Андаманском море Индийского океана.
+                        Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами. Ранее процветание Пхукета, имеющего богатую и яркую историю, зиждил ось на добыче олова и каучука. И поскольку он находился на одном из основных торговых путей между Индией и Китаем,    оянно упоминался в корабельных журналах португальских, французских, голландских и английских купцов. Сегодня провинция основную часть своих доходов получает благодаря огромной туристической популярности острова как морского курорта.
+                    </p>
+                </div>
+                <div class="cur-block">
+                    <p class="block-h red-color">ГОРЯЧИЕ ПРЕДЛОЖЕНИЯ</p>
+                    <div class="row fire-offer">
+                        <!-- OFFER_BLOCK BEGIN-->
+                        <div class="col-sm-4 col-xs-12 offer-block">
+                            <img class="offer-img" src="{% static "images/offer/img-1.png" %}">
+                            <div class="offer-decrption">
+                                <div class="hotel-title">
+                                    <p class="hotel-name">Жемчужина Таиланда</p>
+                                    <p class="hotel-info">Номера 1-го класса</p>
+                                </div>
+                                <div class="continue"></div>
+                            </div>
+                        </div>
+                        <!-- OFFER_BLOCK END-->
+
+                        <!-- OFFER_BLOCK BEGIN-->
+                        <div class="col-sm-4 col-xs-12 offer-block">
+                            <img class="offer-img" src="{% static "images/offer/img-1.png" %}">
+                            <div class="offer-decrption">
+                                <div class="hotel-title">
+                                    <p class="hotel-name">Жемчужина Таиланда</p>
+                                    <p class="hotel-info">Номера 1-го класса</p>
+                                </div>
+                                <div class="continue"></div>
+                            </div>
+                        </div>
+                        <!-- OFFER_BLOCK END-->
+
+                        <!-- OFFER_BLOCK BEGIN-->
+                        <div class="col-sm-4 col-xs-12 offer-block">
+                            <img class="offer-img" src="{% static "images/offer/img-1.png" %}">
+                            <div class="offer-decrption">
+                                <div class="hotel-title">
+                                    <p class="hotel-name">Жемчужина Таиланда</p>
+                                    <p class="hotel-info">Номера 1-го класса</p>
+                                </div>
+                                <div class="continue"></div>
+                            </div>
+                        </div>
+                        <!-- OFFER_BLOCK END-->
+                    </div>
+                    <div class="text-center m-t-35"><button class="btn-sbmt">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></div>
+                </div>
+                <div class="cur-block">
+                    <p class="block-h">СТАТЬИ И НОВОСТИ</p>
+                    <div class="row m-0">
+                        <div class="col-sm-6 col-xs-12 wrap-nws">
+                            <div class="perehod"></div>
+                            <div class="news-block">
+                                <p class="news-title">Лучшие экскурсии на острове Пхукете</p>
+                                <p class="news-date">31 октября / 2016</p>
+                                <div class="news-text">
+                                    Пхукет расположен у западного побережья Таиланда, в Андаманском море. Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 wrap-nws">
+                            <div class="perehod"></div>
+                            <div class="news-block">
+                                <p class="news-title">Лучшие экскурсии на острове Пхукете этим летом</p>
+                                <p class="news-date">31 октября / 2016</p>
+                                <div class="news-text">
+                                    Пхукет расположен у западного побережья Таиланда, в Андаманском море. Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center m-t-35"><button class="btn-all">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

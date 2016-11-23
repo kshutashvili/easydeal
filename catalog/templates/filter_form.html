@@ -1,0 +1,59 @@
+{% load sekizai_tags %}
+
+<div class="filter-form">
+    <form id="filter-form" method="GET" action="{% url "catalog:catalog" %}">
+        <div class="row m-b-25">
+            <div class="col-md-3 col-sm-6 filter-group">
+                <p for="{{ filter_form.type.id_for_label }}">Тип недвижимости</p>
+                {{ filter_form.type.errors }}
+                {{ filter_form.type }}
+            </div>
+            <div class="col-md-3 col-sm-6 filter-group">
+                <p for="{{ filter_form.district.id_for_label }}">Район</p>
+                {{ filter_form.district }}
+            </div>
+            <div class="col-md-3 col-sm-6 filter-group">
+                <p>Количество спален</p>
+                <div class="row">
+                    <div class="col-xs-6 filter-group">
+                        {{ filter_form.min_num_bedrooms }}
+                    </div>
+                    <div class="col-xs-6 filter-group">
+                        {{ filter_form.max_num_bedrooms }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 filter-group">
+                <p>Цена</p>
+                <div class="row">
+                    <div class="col-xs-6 filter-group">
+                        {{ filter_form.min_price }}
+                    </div>
+                    <div class="col-xs-6 filter-group">
+                        {{ filter_form.max_price }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn-sbmt">ПОДОБРАТЬ</button>
+        </div>
+    </form>
+</div>
+
+{% addtoblock "js" %}
+    <script type="text/javascript">
+        $("#filter-form input").keyup(function(event) {
+            pattern = new RegExp(/^\d+$/);
+         
+            if (pattern.test(this.value) == false) {
+                $(this).css('border', '2px solid #a62424');
+                $(this).css('outline', 'none');
+                $("#filter-form :submit").attr("disabled", true);
+            } else{
+                $(this).css('border','none');
+                $("#filter-form :submit").attr("disabled", false);
+            }
+        })
+    </script>
+{% endaddtoblock %}
