@@ -6,41 +6,41 @@
     <div class="content content-padding">
         <!--FILTER_FORM BEGIN-->
         <div class="filter-form">
-            <form>
+            <form method="GET" action="{% url "catalog:catalog" %}">
                 <div class="row m-b-25">
                     <div class="col-md-3 col-sm-6 filter-group">
-                        <p>Тип недвижимости</p>
-                        <input class="filter-input" type="text" placeholder="Все">
+                        <p for="{{ filter_form.type.id_for_label }}">Тип недвижимости</p>
+                        {{ filter_form.type }}
                     </div>
                     <div class="col-md-3 col-sm-6 filter-group">
-                        <p>Район</p>
-                        <input class="filter-input" type="text" placeholder="Все">
+                        <p for="{{ filter_form.district.id_for_label }}">Район</p>
+                        {{ filter_form.district }}
                     </div>
                     <div class="col-md-3 col-sm-6 filter-group">
                         <p>Количество спален</p>
                         <div class="row">
                             <div class="col-xs-6 filter-group">
-                                <select class="filter-input"><option>Min</option></select>
+                                {{ filter_form.min_num_bedrooms }}
                             </div>
                             <div class="col-xs-6 filter-group">
-                                <select class="filter-input col-xs-6"><option>Max</option></select>
+                                {{ filter_form.max_num_bedrooms }}
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 filter-group">
-                        <p>Количество спален</p>
+                        <p>Цена</p>
                         <div class="row">
                             <div class="col-xs-6 filter-group">
-                                <select class="filter-input"><option>Min</option></select>
+                                {{ filter_form.min_price }}
                             </div>
                             <div class="col-xs-6 filter-group">
-                                <select class="filter-input col-xs-6"><option>Max</option></select>
+                                {{ filter_form.max_price }}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="text-center">
-                    <button class="btn-sbmt">ПОДОБРАТЬ</button>
+                    <button type="submit" class="btn-sbmt">ПОДОБРАТЬ</button>
                 </div>
             </form>
         </div>
