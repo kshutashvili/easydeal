@@ -135,12 +135,14 @@
         <span class="f-25">сейчас!</span>
     </div>
     <div class="contact-form">
-        <form>
-            <div class="bottom-input"><span class="form-ico name-ico"></span><input placeholder="имя" type="text"></div>
-            <div class="bottom-input"><span class="form-ico phone-ico"></span><input placeholder="телефон" type="text"></div>
-            <div class="bottom-input"><span class="form-ico email-ico"></span><input placeholder="e-mail" type="email"></div>
-            <button class="btn-sbmt"></button>
-        </form>
+        {% block contact_form %}
+            <form>
+                <div class="bottom-input"><span class="form-ico name-ico"></span><input placeholder="имя" type="text"></div>
+                <div class="bottom-input"><span class="form-ico phone-ico"></span><input placeholder="телефон" type="text"></div>
+                <div class="bottom-input"><span class="form-ico email-ico"></span><input placeholder="e-mail" type="email"></div>
+                <button class="btn-sbmt"></button>
+            </form>
+        {% endblock %}
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

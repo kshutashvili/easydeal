@@ -1,9 +1,12 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import TemplateView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.exceptions import ObjectDoesNotExist
 
 from catalog.models import Property
 from catalog.forms import CatalogFilterForm
+from landing.forms import UserContactsForm
+from landing.models import UserContacts, ChoiceInfo
 
 
 class DetailView(TemplateView):
@@ -11,11 +14,38 @@ class DetailView(TemplateView):
 
     def get(self, request, id):
         property = get_object_or_404(Property, pk=id)
+        form = UserContactsForm()
         return render(
             request,
             self.template_name,
-            {'property': property}
+            {
+                'property': property,
+                'form': form
+            }
         )
+
+    def post(self, request, id):
+        property = get_object_or_404(Property, pk=id)
+        form = UserContactsForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data.get('name')
+            phone_number = form.cleaned_data.get('phone_number')
+            email = form.cleaned_data.get('email')
+            user_contacts = UserContacts(
+                name=name,
+                phone_number=phone_number,
+                email=email,
+            )
+            choice_info_sk = request.session.get('choice_info')
+            if choice_info_sk:
+                try:
+                    choice_info = ChoiceInfo.objects.get(session_key=choice_info_sk)
+                    user_contacts.session_key = choice_info
+                except ObjectDoesNotExist:
+                    pass
+            user_contacts.save()
+            return redirect('catalog:catalog')
+        return redirect(property)
 
 
 def main(request):

@@ -102,3 +102,15 @@
         })
     </script>
 {% endblock %}
+{% block contact_form %}
+    <form method="post">{% csrf_token %}
+        {{ form.non_field_errors }}
+            {{ form.name.errors }}
+            <div class="bottom-input"><span class="form-ico name-ico"></span>{{ form.name }}</div>
+            {{ form.phone_number.errors }}
+            <div class="bottom-input"><span class="form-ico phone-ico"></span>{{ form.phone_number }}</div>
+            {{ form.email.errors }}
+            <div class="bottom-input"><span class="form-ico email-ico"></span>{{ form.email }}</div>
+            <button class="btn-sbmt"></button>
+    </form>
+{% endblock %}

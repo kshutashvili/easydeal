@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.urls import reverse
 
 
 def property_directory_path(instance, photo):
@@ -93,3 +94,6 @@ class Property(models.Model):
 
     def get_title_image(self):
         return self.get_images().first()
+
+    def get_absolute_url(self):
+        return reverse('catalog:detail', args=[str(self.id)])
