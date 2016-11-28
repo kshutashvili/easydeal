@@ -1,10 +1,7 @@
-@charset "UTF-8";
 @import url(nice-select.css);
 @font-face {
   font-family: Verdana;
-  /* Гарнитура шрифта */
-  src: url(../fonts/verdana.ttf);
-  /* Путь к файлу со шрифтом */ }
+  src: url(../fonts/verdana.ttf); }
 .content-padding {
   padding: 0px 230px; }
 
@@ -825,6 +822,211 @@ header {
   .state-news .block-h {
     margin-bottom: 30px;
     text-align: center; }
+
+.p-t-25 {
+  padding-top: 25px; }
+
+.p-b-25 {
+  padding-bottom: 25px; }
+
+.p-t-20 {
+  padding-top: 20px; }
+
+.p-b-20 {
+  padding-bottom: 20px; }
+
+.modal-content.active {
+  left: 0px;
+  top: 0px; }
+
+.modal-dialog {
+  width: 964px !important;
+  height: 408px;
+  overflow: hidden; }
+
+.modal-content {
+  height: 100%;
+  overflow: hidden;
+  position: absolute !important;
+  left: -110%;
+  top: 0;
+  width: 100%;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  .modal-content .btn-sbmt:hover {
+    border: 1px solid #b2b9bb;
+    background: #b2b9bb; }
+  .modal-content .continue-prev, .modal-content .close {
+    width: 27px;
+    height: 27px;
+    background: transparent;
+    border: 1px solid #b2b9bb;
+    display: inline-block;
+    vertical-align: bottom;
+    color: #b2b9bb;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .modal-content .continue-prev:hover, .modal-content .close:hover {
+    background: #b2b9bb;
+    color: #fff; }
+  .modal-content .continue-prev:hover:after {
+    border-color: #fff; }
+  .modal-content .continue-prev::after {
+    border-bottom: none;
+    border-right: none;
+    border-top: 1px solid #b2b9bb;
+    border-left: 1px solid #b2b9bb;
+    width: 9px;
+    height: 9px;
+    margin-right: 0px;
+    margin-left: 4px; }
+  .modal-content p {
+    margin: 0px !important; }
+  .modal-content .button-block {
+    position: absolute;
+    top: 10px;
+    right: 10px; }
+  .modal-content .modal-header {
+    padding: 35px 0px;
+    text-align: center;
+    border: none; }
+  .modal-content .modal-title {
+    font-size: 12px;
+    text-transform: uppercase; }
+  .modal-content .modal-body {
+    height: 325px;
+    padding: 0px; }
+  .modal-content .interest {
+    font-size: 0px; }
+  .modal-content .offer-block {
+    width: 285px;
+    display: inline-block;
+    padding: 0px; }
+    .modal-content .offer-block .offer-decrption {
+      padding: 0px;
+      font-size: 12px; }
+      .modal-content .offer-block .offer-decrption .hotel-title {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        font-size: 12px; }
+      .modal-content .offer-block .offer-decrption .continue {
+        right: 0px; }
+  .modal-content .offer-block:first-of-type {
+    margin-right: 20px; }
+
+.f-0 {
+  font-size: 0px; }
+
+.f-11 {
+  font-size: 11px; }
+
+.target-block {
+  vertical-align: top;
+  height: 40px;
+  width: 285px;
+  display: inline-block;
+  position: relative;
+  background: #fff;
+  margin: 0px 6px;
+  font-size: 12px;
+  padding-right: 40px;
+  text-align: center; }
+  .target-block .target-text {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    height: 100%; }
+  .target-block .continue {
+    position: absolute;
+    right: 0px;
+    top: 0px; }
+
+.choice-place {
+  width: 155px;
+  background: #fff;
+  vertical-align: top;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+  margin: 6px;
+  padding-right: 40px;
+  padding-left: 12px;
+  text-align: left; }
+  .choice-place .choice-text {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    height: 100%; }
+  .choice-place .icheckbox_minimal {
+    position: absolute !important;
+    right: 0px;
+    top: 0px; }
+
+.modal-content.pos-0 .modal-header {
+  background: #f0f1f1; }
+.modal-content.pos-0 .modal-body {
+  background: #b3babe; }
+
+.modal-content.pos-1 {
+  background: url(../images/window-disp/back2.png);
+  background-size: cover;
+  padding: 0px 25px; }
+
+.modal-content.pos-2 {
+  background: url(../images/window-disp/back3.png);
+  background-size: cover;
+  padding: 0px 25px; }
+
+.modal-content.pos-3 {
+  background: url(../images/window-disp/back4.png);
+  background-size: cover;
+  padding: 0px 25px; }
+
+.pos-4, .pos-5 {
+  padding: 0px 25px; }
 
 @media screen and (max-width: 1400px) {
   .content-padding, header {

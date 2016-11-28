@@ -8,3 +8,4 @@
 /easydeal/local_settings.py
 media
 staticfiles
+env

@@ -11,6 +11,7 @@
     <title>{% block title %} Easy Deal {% endblock %}</title>
     <link rel="stylesheet" href="{% static "css/styles.css" %}">
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/all.css" %}">
 </head>
 <body>
     <header>
@@ -126,22 +127,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.3.1/jquery.sidebar.min.js"></script>
     <script src="{% static "js/jquery.nice-select.min.js" %}"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/icheck.min.js" %}"></script>
+
     <script type="text/javascript">
 
         $(document).ready(function() {
             $('select').niceSelect();
+            $("header").outerHeight($(".slider").height());
 
+            $('.carousel').carousel();
+
+            $('input[type="checkbox"]').iCheck({
+                checkboxClass: 'icheckbox_minimal',
+                radioClass: 'iradio_minimal',
+                increaseArea: '20%' // optional
+            });
+
+            $("#mobile-menu").on("click",function () {
+                $(".slidebar").css({"left":"0px"});
+            });
+
+            $("#close-mobile-menu").on("click", function () {
+                $(".slidebar").css({"left":-1*$(".slidebar").outerWidth()+"px"})
+            })
         });
-        $("header").outerHeight($(".slider").height());
-        $('.carousel').carousel();
-
-        $("#mobile-menu").on("click",function () {
-            $(".slidebar").css({"left":"0px"});
-        });
-
-        $("#close-mobile-menu").on("click", function () {
-            $(".slidebar").css({"left":-1*$(".slidebar").outerWidth()+"px"})
-        })
 
         $(document).resize(function () {
             alert("resize");

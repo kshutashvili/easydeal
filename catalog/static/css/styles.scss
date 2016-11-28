@@ -16,6 +16,22 @@ $content-padding: 0px 230px;
   user-select: none;
 }
 
+@mixin align-items-vert($position){
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: $position;
+  -moz-box-align: $position;
+  -ms-flex-align: $position;
+  -webkit-align-items: $position;
+  align-items: $position;
+  -webkit-box-pack:$position;
+  -moz-box-pack: $position;
+  -ms-flex-pack: $position;
+}
+
 @mixin align-items($position){
   display: -webkit-box;
   display: -moz-box;
@@ -35,8 +51,8 @@ $content-padding: 0px 230px;
 }
 
 @font-face {
-  font-family: Verdana; /* Гарнитура шрифта */
-  src: url(../fonts/verdana.ttf); /* Путь к файлу со шрифтом */
+  font-family: Verdana;
+  src: url(../fonts/verdana.ttf);
 }
 
 .content-padding{
@@ -967,6 +983,217 @@ header{
   }
 }
 
+.p-t-25{
+  padding-top: 25px;
+}
+
+.p-b-25{
+  padding-bottom: 25px;
+}
+
+.p-t-20{
+  padding-top: 20px;
+}
+
+.p-b-20{
+  padding-bottom: 20px;
+}
+
+.modal-content.active{
+  left: 0px;
+  top: 0px
+}
+
+.modal-dialog{
+  width: 964px !important ;
+  height: 408px;
+  overflow: hidden;
+}
+
+.modal-content{
+
+  height: 100%;
+  overflow: hidden;
+  position: absolute !important;
+  left: -110%;
+  top: 0;
+  width: 100%;
+  @include animation(0.8s);
+
+  .btn-sbmt:hover{
+    border: 1px solid $dark-grey_color;
+    background: $dark-grey_color;
+  }
+
+  .continue-prev, .close{
+    width: 27px;
+    height: 27px;
+    background: transparent;
+    border: 1px solid $dark-grey_color;
+    display: inline-block;
+    vertical-align: bottom;
+    color: $dark-grey_color;
+    @include animation(0.3s);
+  }
+
+  .continue-prev:hover, .close:hover{
+    background: $dark-grey_color;
+    color: #fff;
+  }
+
+  .continue-prev:hover:after{
+    border-color: #fff;
+  }
+  .continue-prev::after{
+    border-bottom: none;
+    border-right: none;
+    border-top: 1px solid $dark-grey_color;
+    border-left: 1px solid $dark-grey_color;
+    width: 9px;
+    height: 9px;
+    margin-right: 0px;
+    margin-left: 4px;
+  }
+  p{
+    margin: 0px !important;
+  }
+  .button-block{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .modal-header{
+    padding: 35px 0px;
+    text-align: center;
+    border: none;
+  }
+
+  .modal-title{
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  .modal-body{
+    height: 325px;
+    padding: 0px;
+  }
+
+
+  .interest{
+    font-size: 0px;
+  }
+  .offer-block{
+    width: 285px;
+    display: inline-block;
+    padding: 0px;
+
+    .offer-decrption{
+      padding: 0px;
+      font-size: 12px;
+
+      .hotel-title{
+        @include align-items(center);
+        font-size: 12px;
+      }
+
+      .continue{
+        right: 0px;
+      }
+    }
+  }
+
+  .offer-block:first-of-type{
+    margin-right: 20px;
+  }
+
+}
+
+.f-0{
+  font-size: 0px;
+}
+
+.f-11{
+  font-size: 11px;
+}
+
+.target-block{
+  vertical-align: top;
+  height: 40px;
+  width: 285px;
+  display: inline-block;
+  position: relative;
+  background: #fff;
+  margin: 0px 6px;
+  font-size: 12px;
+  padding-right: 40px;
+  text-align: center;
+  .target-text{
+    @include align-items(center);
+    height: 100%;
+  }
+
+  .continue{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+
+}
+
+.choice-place{
+  width: 155px;
+  background: #fff;
+  vertical-align: top;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+  margin: 6px;
+  padding-right: 40px;
+  padding-left: 12px;
+  text-align: left;
+  .choice-text{
+    @include align-items-vert(center);
+    height: 100%;
+  }
+  .icheckbox_minimal{
+    position: absolute !important;
+    right: 0px;
+    top: 0px;
+  }
+}
+
+.modal-content.pos-0{
+  .modal-header{
+    background: #f0f1f1;
+  }
+  .modal-body{
+    background: #b3babe;
+  }
+}
+
+.modal-content.pos-1{
+  background: url(../images/window-disp/back2.png);
+  background-size: cover;
+  padding: 0px 25px;
+}
+
+.modal-content.pos-2{
+  background: url(../images/window-disp/back3.png);
+  background-size: cover;
+  padding: 0px 25px;
+}
+
+.modal-content.pos-3{
+  background: url(../images/window-disp/back4.png);
+  background-size: cover;
+  padding: 0px 25px;
+}
+
+.pos-4, .pos-5{
+  padding: 0px 25px;
+}
+
+
 @media screen and (max-width:1400px){
   .content-padding, header{
     padding-left: 130px;
@@ -983,6 +1210,8 @@ header{
   font-size: 30px;
   color: #fff;
 }
+
+
 
 @media screen and (max-width: 1270px){
   .content-padding, header{
