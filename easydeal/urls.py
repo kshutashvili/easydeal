@@ -31,5 +31,6 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     url(r'^', include('catalog.urls', namespace='catalog')),
     url(r'^', include('config.urls', namespace='config')),
+    url(r'^', include('landing.urls', namespace='landing')),
     url(r'^admin/', admin.site.urls),
 )

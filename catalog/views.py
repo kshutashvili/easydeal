@@ -48,12 +48,6 @@ class DetailView(TemplateView):
         return redirect(property)
 
 
-def main(request):
-    context = {
-        'filter_form': CatalogFilterForm(request.GET),
-    }
-    return render(request, 'main.html', context)
-
 def catalog(request):
     filter_form = CatalogFilterForm(request.GET)
     params = {}
