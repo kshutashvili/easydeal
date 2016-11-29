@@ -11,7 +11,9 @@
     <title>{% block title %} Easy Deal {% endblock %}</title>
     <link rel="stylesheet" href="{% static "css/styles.css" %}">
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/all.css" %}">
+    {% block css %}
+    
+    {% endblock %}
 </head>
 <body>
     <header>
@@ -115,19 +117,184 @@
             <span class="f-25">сейчас!</span>
         </div>
         <div class="contact-form">
-            <form>
-                <div class="bottom-input"><span class="form-ico name-ico"></span><input placeholder="имя" type="text"></div>
-                <div class="bottom-input"><span class="form-ico phone-ico"></span><input placeholder="телефон" type="text"></div>
-                <div class="bottom-input"><span class="form-ico email-ico"></span><input placeholder="e-mail" type="email"></div>
+            <form method="post">{% csrf_token %}
+                {{ contact_form.non_field_errors }}
+                {{ contact_form.name.errors }}
+                    <div class="bottom-input"><span class="form-ico name-ico"></span>{{ contact_form.name }}</div>
+                {{ contact_form.phone_number.errors }}
+                    <div class="bottom-input"><span class="form-ico phone-ico"></span>{{ contact_form.phone_number }}</div>
+                {{ form.email.errors }}
+                    <div class="bottom-input"><span class="form-ico email-ico"></span>{{ contact_form.email }}</div>
                 <button class="btn-sbmt"></button>
             </form>
         </div>
     </div>
+
+    <!-- MODAL FORM-->
+    <form class="modal fade" id="modal_search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" id="dynamic_screen" role="document">
+            <form>
+            <div class="modal-content pos-0 active" id="pos-0" position="0">
+                <div class="modal-header ">
+                    <div class="button-block">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <p class="modal-title">позвольте нам сделать ваш выбор легче!</p>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-title red-color text-center p-b-25 p-t-25">Что вас инересует?</p>
+                    <div class="interest fire-offer text-center">
+                        <div class="offer-block">
+                            <img class="offer-img" src="{% static 'images/window-disp/link1.png' %}">
+                            <div class="offer-decrption">
+                                <div class="hotel-title">
+                                    Инвестиции в строительство
+                                </div>
+                                <div class="continue next-w" next="#pos-4"></div>
+                            </div>
+                        </div>
+                        <div class="offer-block">
+                            <img class="offer-img" src="{% static 'images/window-disp/link2.png' %}">
+                            <div class="offer-decrption">
+                                <div class="hotel-title">
+                                    Покупка недвижимости
+                                </div>
+                                <div class="continue next-w" next="#pos-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-content pos-1" id="pos-1" position="1">
+                <div class="modal-header">
+                    <div class="button-block">
+                        <button type="button" class="continue continue-prev prev-w"></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <p class="modal-title red-color">Какова цель вашей покупки?</p>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center f-0 p-b-25">
+                        <select class="target" name="buy" next="#pos-2">
+                            <option value="Проживание">Проживание</option>
+                            <option value="Инвестиция + Проживание">Инвестиция + Проживание</option>
+                            <option value="Инвестиция">Инвестиция</option>
+                        </select>
+                    </div>
+                    <div class="text-center"><button class="btn-sbmt next-w" next="#pos-5">В ЧЕМ РАЗНИЦА?</button></div>
+                </div>
+            </div>
+
+            <div class="modal-content pos-2" id="pos-2" position="2">
+                <div class="modal-header">
+                    <div class="button-block">
+                        <button type="button" class="continue continue-prev prev-w"></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <p class="modal-title red-color">Какой район вы предпочитаете?</p>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center p-b-20">Можно выбрать несколько районов</p>
+                    <div class="text-center">
+                        <div>
+                            <div class="choice-place"><div class="choice-text">Кату</div><input class="chckbx" type="checkbox"></div>
+                            <div class="choice-place"><div class="choice-text">Ката</div><input class="chckbx" type="checkbox"></div>
+                            <div class="choice-place"><div class="choice-text">Бангтао</div><input class="chckbx" type="checkbox"></div>
+                            <div class="choice-place"><div class="choice-text">Камала</div><input class="chckbx" type="checkbox"></div>
+                        </div>
+                        <div>
+                            <div class="choice-place"><div class="choice-text">Карон</div><input class="chckbx" type="checkbox"></div>
+                            <div class="choice-place"><div class="choice-text">Майкао</div><input class="chckbx" type="checkbox"></div>
+                            <div class="choice-place"><div class="choice-text">Раваи</div><input class="chckbx" type="checkbox"></div>
+                            <div class="choice-place"><div class="choice-text">Патонг</div><input class="chckbx" type="checkbox"></div>
+                        </div>
+                        <div>
+                            <div class="choice-place"><div class="choice-text">Чалонг</div><input class="chckbx" type="checkbox"></div>
+                            <div class="choice-place"><div class="choice-text">Найтон</div><input class="chckbx" type="checkbox"></div>
+                            <div class="choice-place"><div class="choice-text">Сурин</div><input class="chckbx" type="checkbox"></div>
+                            <div class="choice-place"><div class="choice-text">Найхарн</div><input class="chckbx" type="checkbox"></div>
+                        </div>
+                    </div>
+                    <div class="text-center p-t-25"><button class="btn-sbmt next-w" next="#pos-5">В ЧЕМ РАЗНИЦА?</button><div class="target-block"><div class="target-text">Далее</div><div class="continue next-w" next="#pos-3"></div></div></div>
+                </div>
+            </div>
+
+            <div class="modal-content pos-3" id="pos-3" position="3">
+                <div class="modal-header">
+                    <div class="button-block">
+                        <button type="button" class="continue continue-prev prev-w"></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <p class="modal-title red-color">Какой тип недвижимости вы ищете?</p>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center f-0 p-b-25">
+                        <select class="target" name="type" next="submit">
+                            <option value="Вилла">Вилла</option>
+                            <option value="Таунхаус">Таунхаус</option>
+                            <option value="Кондоминиум">Кондоминиум</option>
+                        </select>
+                    </div>
+                    <div class="text-center"><button class="btn-sbmt next-w" next="#pos-5">В ЧЕМ РАЗНИЦА?</button></div>
+                </div>
+            </div>
+            <div class="modal-content pos-4" id="pos-4" position="3">
+                <div class="modal-header">
+                    <div class="button-block">
+                        <button type="button" class="continue continue-prev prev-w"></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <p class="modal-title red-color">Инвестиции в строительство</p>
+                </div>
+                <div class="modal-body">
+                    <div class="f-11">
+                        Пхукет расположен у западного побережья Таиланда, в Андаманском море Индийского океана.
+                        Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами. Ранее процветание Пхукета, имеющего богатую и яркую историю, зиждил ось на добыче олова и каучука. И поскольку он находился на одном из основных торговых путей между Индией и Китаем,    оянно упоминался в корабельных журналах португальских, французских, голландских и английских купцов. Сегодня провинция основную часть своих доходов получает благодаря огромной туристической популярности острова как морского курорта.
+                        <br><br>
+                        Пхукет расположен у западного побережья Таиланда, в Андаманском море Индийского океана.
+                        Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами. Ранее процветание Пхукета, имеющего богатую и яркую историю, зиждил ось на добыче олова и каучука. И поскольку он находился на одном из основных торговых путей между Индией и Китаем,    оянно упоминался в корабельных журналах португальских, французских, голландских и английских купцов.
+                        <br><br>
+                        Сегодня провинция основную часть своих доходов получает благодаря огромной туристической популярности острова как морского курорта.
+                    </div>
+                    <div class="text-center p-t-25"><div class="target-block"><div class="target-text">ВЕРНУТЬСЯ К ПОИСКУ</div><div class="continue prev-w"></div></div></div>
+                </div>
+            </div>
+            <div class="modal-content pos-5" id="pos-5" position="3">
+                <div class="modal-header">
+                    <div class="button-block">
+                        <button type="button" class="continue continue-prev prev-w"></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <p class="modal-title red-color">в чем разница?</p>
+                </div>
+                <div class="modal-body">
+                    <div class="f-11">
+                        Пхукет расположен у западного побережья Таиланда, в Андаманском море Индийского океана.
+                        Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами. Ранее процветание Пхукета, имеющего богатую и яркую историю, зиждил ось на добыче олова и каучука. И поскольку он находился на одном из основных торговых путей между Индией и Китаем,    оянно упоминался в корабельных журналах португальских, французских, голландских и английских купцов. Сегодня провинция основную часть своих доходов получает благодаря огромной туристической популярности острова как морского курорта.
+                        <br><br>
+                        Пхукет расположен у западного побережья Таиланда, в Андаманском море Индийского океана.
+                        Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами. Ранее процветание Пхукета, имеющего богатую и яркую историю, зиждил ось на добыче олова и каучука. И поскольку он находился на одном из основных торговых путей между Индией и Китаем,    оянно упоминался в корабельных журналах португальских, французских, голландских и английских купцов.
+                        <br><br>
+                        Сегодня провинция основную часть своих доходов получает благодаря огромной туристической популярности острова как морского курорта.
+
+                    </div>
+                    <div class="text-center p-t-25"><div class="target-block"><div class="target-text">ВЕРНУТЬСЯ К ПОИСКУ</div><div class="continue prev-w"></div></div></div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.3.1/jquery.sidebar.min.js"></script>
     <script src="{% static "js/jquery.nice-select.min.js" %}"></script>
     <script src="{% static "js/bootstrap.min.js" %}"></script>
     <script src="{% static "js/icheck.min.js" %}"></script>
+    
+    {% render_block 'js' %}
+    {% block js %}
 
     <script type="text/javascript">
 
@@ -157,8 +324,6 @@
             $("header").outerHeight($(".slider").height());
         })
     </script>
-    {% render_block 'js' %}
-    {% block js %}
 
     {% endblock %}
 </body>

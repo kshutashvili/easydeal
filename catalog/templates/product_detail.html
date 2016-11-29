@@ -1,8 +1,8 @@
-{% extends 'catalog/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% load imagefit %}
 {% block title %}Каталог{% endblock %}
-{% block extra_css %}
+{% block css %}
     <link rel="stylesheet" href="{% static 'css/lightslider.css' %}">
 {% endblock %}
 {% block content %}
@@ -61,7 +61,7 @@
         <div class="text-center m-t-35"><button class="btn-all">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></div>
     </div>
 {% endblock %}
-{% block extra_js %}
+{% block js %}
     <script src="{% static 'js/lightslider.js' %}"></script>
     <script type="text/javascript">
 
@@ -101,16 +101,4 @@
             $("header").outerHeight($(".slider").height());
         })
     </script>
-{% endblock %}
-{% block contact_form %}
-    <form method="post">{% csrf_token %}
-        {{ form.non_field_errors }}
-            {{ form.name.errors }}
-            <div class="bottom-input"><span class="form-ico name-ico"></span>{{ form.name }}</div>
-            {{ form.phone_number.errors }}
-            <div class="bottom-input"><span class="form-ico phone-ico"></span>{{ form.phone_number }}</div>
-            {{ form.email.errors }}
-            <div class="bottom-input"><span class="form-ico email-ico"></span>{{ form.email }}</div>
-            <button class="btn-sbmt"></button>
-    </form>
 {% endblock %}

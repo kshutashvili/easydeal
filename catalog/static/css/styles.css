@@ -1,7 +1,10 @@
+@charset "UTF-8";
 @import url(nice-select.css);
 @font-face {
   font-family: Verdana;
-  src: url(../fonts/verdana.ttf); }
+  /* Гарнитура шрифта */
+  src: url(../fonts/verdana.ttf);
+  /* Путь к файлу со шрифтом */ }
 .content-padding {
   padding: 0px 230px; }
 

@@ -5,7 +5,7 @@ from django.template.defaultfilters import floatformat
 from config.models import SiteConfiguration
 
 
-config = SiteConfiguration.objects.get()
+config = SiteConfiguration.get_solo()
 register = template.Library()
 @register.filter(name='get_price')
 def get_price(property, request):

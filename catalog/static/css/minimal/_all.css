@@ -3,13 +3,14 @@
 .icheckbox_minimal,
 .iradio_minimal {
     display: inline-block;
-    *display: inline;
     vertical-align: middle;
     margin: 0;
     padding: 0;
     width: 40px;
     height: 40px;
-    background: url(minimal.png) no-repeat;
+    background-image: url(minimal@2x.png);
+    -webkit-background-size: 450px 45px;
+    background-size: 450px 45px;
     border: none;
     cursor: pointer;
 }
