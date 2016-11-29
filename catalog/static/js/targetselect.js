@@ -20,7 +20,7 @@
             $.each(options, function (index, value) {
                 var el_value = $(value).attr("value");
                 var el_text = $(value).text();
-                var new_el = '<div class="target-block"><div class="target-text">'+el_text+'</div><div class="continue next-w" next="'+el_next+'" value="'+el_value+'"></div></div>';
+                var new_el = '<div class="target-block option"><div class="target-text">'+el_text+'</div><div class="continue next-w" next="'+el_next+'" value="'+el_value+'"></div></div>';
                 $parent.append(new_el);
             });
         })

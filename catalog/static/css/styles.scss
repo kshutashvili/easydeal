@@ -51,8 +51,8 @@ $content-padding: 0px 230px;
 }
 
 @font-face {
-  font-family: Verdana; /* Гарнитура шрифта */
-  src: url(../fonts/verdana.ttf); /* Путь к файлу со шрифтом */
+  font-family: Verdana;
+  src: url(../fonts/verdana.ttf);
 }
 
 .content-padding{
@@ -1005,7 +1005,7 @@ header{
 }
 
 .modal-dialog{
-  width: 964px !important ;
+  width: 964px !important; ;
   height: 408px;
   overflow: hidden;
 }
@@ -1086,6 +1086,7 @@ header{
     width: 285px;
     display: inline-block;
     padding: 0px;
+    margin: 0px 10px 10px 10px !important;
 
     .offer-decrption{
       padding: 0px;
@@ -1270,6 +1271,19 @@ header{
   }
 }
 
+@media screen and (max-width: 964px){
+  .modal-dialog{
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 954px){
+  .target-block.option{
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+}
+
 @media screen and (max-width: 800px) {
 
 }
@@ -1327,5 +1341,40 @@ header{
   }
   .full-offer{
     border-right: 1px solid #000;
+  }
+
+  .choice-place{
+    width: 45%;
+  }
+
+}
+
+@media screen and (max-width: 620px){
+  .modal-content{
+    overflow-y: auto;
+
+    .modal-body{
+      height: auto;
+      .btn-sbmt{
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px){
+  .choice-place{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 380px){
+  .btn-sbmt{
+    width: 100%;
+  }
+  .target-block{
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
   }
 }
