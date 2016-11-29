@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+from decimal import Decimal
 
 from django.db import models
 from solo.models import SingletonModel
@@ -44,17 +45,20 @@ class SiteConfiguration(SingletonModel):
     usd_rate = models.DecimalField(
         verbose_name=_('Курс доллара к бату'),
         max_digits=10,
-        decimal_places=2
+        decimal_places=2,
+        default=Decimal('0')
     )
     euro_rate = models.DecimalField(
         verbose_name=_('Курс евро к бату'),
         max_digits=10,
-        decimal_places=2
+        decimal_places=2,
+        default=Decimal('0')
     )
     rub_rate = models.DecimalField(
         verbose_name=_('Курс рубля к бату'),
         max_digits=10,
-        decimal_places=2
+        decimal_places=2,
+        default=Decimal('0')
     )
 
     def __unicode__(self):

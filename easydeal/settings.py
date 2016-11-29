@@ -170,14 +170,7 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': os.path.join(tempfile.gettempdir(), 'django_imagefit')
     },
-    'solo_cache': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-    },
 }
-
-SOLO_CACHE = 'solo_cache'
-
-SOLO_CACHE_TIMEOUT = 60*5
 
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 
