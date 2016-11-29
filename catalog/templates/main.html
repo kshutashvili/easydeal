@@ -111,9 +111,9 @@
     </div>
     
     <!-- MODAL FORM-->
-    <form class="modal fade" id="modal_search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="modal_search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" id="dynamic_screen" role="document">
-            <form>
+            <form action="{% url 'catalog:catalog' %}" method="get" >
             <div class="modal-content pos-0 active" id="pos-0" position="0">
                 <div class="modal-header ">
                     <div class="button-block">
