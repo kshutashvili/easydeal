@@ -1,0 +1,18 @@
+<div class="bottom content-padding">
+    <div class="bottom-arrow">
+        Свяжитесь с нами<br>
+        <span class="f-25">сейчас!</span>
+    </div>
+    <div class="contact-form">
+        <form method="post">{% csrf_token %}
+            {{ contact_form.non_field_errors }}
+            {{ contact_form.name.errors }}
+                <div class="bottom-input"><span class="form-ico name-ico"></span>{{ contact_form.name }}</div>
+            {{ contact_form.phone_number.errors }}
+                <div class="bottom-input"><span class="form-ico phone-ico"></span>{{ contact_form.phone_number }}</div>
+            {{ form.email.errors }}
+                <div class="bottom-input"><span class="form-ico email-ico"></span>{{ contact_form.email }}</div>
+            <button class="btn-sbmt"></button>
+        </form>
+    </div>
+</div>

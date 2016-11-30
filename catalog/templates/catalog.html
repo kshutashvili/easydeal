@@ -3,56 +3,49 @@
 {% load catalog_extras %}
 
 {% block content %}
-    <div class="content content-padding">
-        <!--FILTER_FORM BEGIN-->
-        <div class="filter-form">
-            {% include 'filter_form.html' with filter_form=filter_form %}
-        </div>
-        <!--FILTER_FORM END-->
-        <div class="search-result text-center">
-            ВСЕГО НАЙДЕНО ОБЪЕКТОВ <span class="red-color">{{ property_list.count }}</span>
-        </div>
-        <div class="catalog">
-            <div class="row">
-                {% for property in properties %}
-                    <div class="offer col-sm-6 col-xs-12">
+    <div class="search-result text-center">
+        ВСЕГО НАЙДЕНО ОБЪЕКТОВ <span class="red-color">{{ property_list.count }}</span>
+    </div>
+    <div class="catalog">
+        <div class="row">
+            {% for property in properties %}
+                <div class="offer col-sm-6 col-xs-12">
 
-                        <img src="{{ property.get_title_image.image.url }}">
-                        <div class="bg_white-offer"></div>
-                        <div class="offer-info">
-                            <div>
-                                <p class="offer-title">{{ property.name }}</p>
-                                <p>{{ property.get_property_type_display  }}<br>комнат: {{ property.number_of_bedrooms }}</p>
-                            </div>
-                            <div class="offer-price">
-                                <span class="price">{{ property|get_price:request }}</span>
-                                <a class="continue"></a>
-                            </div>
+                    <img src="{{ property.get_title_image.image.url }}">
+                    <div class="bg_white-offer"></div>
+                    <div class="offer-info">
+                        <div>
+                            <p class="offer-title">{{ property.name }}</p>
+                            <p>{{ property.get_property_type_display  }}<br>комнат: {{ property.number_of_bedrooms }}</p>
+                        </div>
+                        <div class="offer-price">
+                            <span class="price">{{ property|get_price:request }}</span>
+                            <a class="continue"></a>
                         </div>
                     </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% if properties.has_other_pages %}
+        <div class="paginator">
+            <div class="pager">
+                {% if properties.has_previous %}
+                    <a href="?page={{ properties.previous_page_number }}" class="perehod prev"></a>
+                {% endif %}
+                {% for num in properties.paginator.page_range %}
+                    {% ifequal num properties.number %}
+                        <a class="page current">{{ num }}</a>
+                    {% else %}
+                        <a href="?page={{ num }}" class="page">{{ num }}</a>
+                    {% endifequal %} 
                 {% endfor %}
+
+
+                {% if properties.has_next %}
+                    <a href="?page={{ properties.next_page_number }}" class="perehod next"></a>
+                {% endif %}
             </div>
         </div>
-        {% if properties.has_other_pages %}
-            <div class="paginator">
-                <div class="pager">
-                    {% if properties.has_previous %}
-                        <a href="?page={{ properties.previous_page_number }}" class="perehod prev"></a>
-                    {% endif %}
-                    {% for num in properties.paginator.page_range %}
-                        {% ifequal num properties.number %}
-                            <a class="page current">{{ num }}</a>
-                        {% else %}
-                            <a href="?page={{ num }}" class="page">{{ num }}</a>
-                        {% endifequal %} 
-                    {% endfor %}
-
-
-                    {% if properties.has_next %}
-                        <a href="?page={{ properties.next_page_number }}" class="perehod next"></a>
-                    {% endif %}
-                </div>
-            </div>
-        {% endif %}
-    </div>
+    {% endif %}
 {% endblock %}

@@ -17,42 +17,22 @@
 </head>
 <body>
     <header>
-        <img class="header-back" src="{% static "images/header-back.png" %}">
-        <div class="row">
-            <div class="hidden-lg hidden-md col-xs-2 text-center mini-menu"><span id="mobile-menu" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></div>
-            <div class="logo col-md-3 col-xs-4"><img src="{% static "images/logo.png" %}"></div>
-            <div class="slidebar">
-                <p style="font-size: 30px; color: #fff;height: 50px" id="close-mobile-menu"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></p>
-                <menu>
-                    <a>ГЛАВНАЯ</a>
-                    <a>О НАС</a>
-                    <a>ПОКУПКА НЕДВИЖИМОСТИ</a>
-                    <a>ИНВЕСТИЦИИ В СТРОИТЕЛЬСТВО</a>
-                    <a>КОНТАКТЫ</a>
-                </menu>
-                <div class="setting-group">
-                    <form action="{% url 'config:set_currency' %}" method="POST">
-                        {% csrf_token %}
-                        {{ choose_currency_form.as_p }}
-                    </form>
+    <img class="header-back" src="{% static 'images/header-back.png' %}">
+    <div class="row">
+        <div class="hidden-lg hidden-md col-xs-2 text-center mini-menu"><span id="mobile-menu" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></div>
+        <div class="logo col-md-3 col-xs-4"><img src="{% static 'images/logo.png' %}"></div>
+        <div class="slidebar">
+            <p style="font-size: 30px; color: #fff;height: 50px" id="close-mobile-menu"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></p>
+            <menu>
+                <a>ГЛАВНАЯ</a>
+                <a>О НАС</a>
+                <a>ПОКУПКА НЕДВИЖИМОСТИ</a>
+                <a>ИНВЕСТИЦИИ В СТРОИТЕЛЬСТВО</a>
+                <a>КОНТАКТЫ</a>
+            </menu>
+                
+                {% include 'language_chooser1.html' %}
 
-                    <form action="{% url 'set_language' %}" method="post">
-                        {% csrf_token %}
-                        {% get_available_languages as LANGUAGES %}
-                        <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
-                        <select name="language" onchange='if(this.value != 0) { this.form.submit(); }'>
-                            {% get_current_language as LANGUAGE_CODE %}
-                            {% get_language_info_list for LANGUAGES as languages %}
-                            {% for language in languages %}
-                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
-                                    {{ language.code|upper }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </form>
-
-                </div>
-            </div>
             <!--FOR SMALL SCREEN-->
             <div class="hidden-lg hidden-md col-xs-6"></div>
             <!--END FOR SMALL SCREEN-->
@@ -62,26 +42,8 @@
                 </menu>
             </div>
 
-            <div class="setting-group visible-lg col-lg-2">
-                <form action="{% url 'config:set_currency' %}" method="POST">
-                    {% csrf_token %}
-                    {{ choose_currency_form.as_p }}
-                </form>
-                <form action="{% url 'set_language' %}" method="post">
-                    {% csrf_token %}
-                    {% get_available_languages as LANGUAGES %}
-                    <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
-                    <select name="language" onchange='if(this.value != 0) { this.form.submit(); }'>
-                        {% get_current_language as LANGUAGE_CODE %}
-                        {% get_language_info_list for LANGUAGES as languages %}
-                        {% for language in languages %}
-                            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
-                                {{ language.code|upper }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </form>
-            </div>
+            {% include 'language_chooser2.html' %}
+
         </div>
         <div class="slider">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -94,41 +56,27 @@
                 <!-- Wrapper for carousel items -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="{% static "images/slider/img-1.jpg" %}" alt="First Slide">
+                        <img src="{% static 'images/slider/img-1.jpg' %}" alt="First Slide">
                     </div>
                     <div class="item">
-                        <img src="{% static "images/slider/img-1.jpg" %}" alt="Second Slide">
+                        <img src="{% static 'images/slider/img-1.jpg' %}" alt="Second Slide">
                     </div>
                     <div class="item">
-                        <img src="{% static "images/slider/img-1.jpg" %}" alt="Third Slide">
+                        <img src="{% static 'images/slider/img-1.jpg' %}" alt="Third Slide">
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
-    {% block content %}
-        
-    {% endblock %}
-
-    <div class="bottom content-padding">
-        <div class="bottom-arrow">
-            Свяжитесь с нами<br>
-            <span class="f-25">сейчас!</span>
-        </div>
-        <div class="contact-form">
-            <form method="post">{% csrf_token %}
-                {{ contact_form.non_field_errors }}
-                {{ contact_form.name.errors }}
-                    <div class="bottom-input"><span class="form-ico name-ico"></span>{{ contact_form.name }}</div>
-                {{ contact_form.phone_number.errors }}
-                    <div class="bottom-input"><span class="form-ico phone-ico"></span>{{ contact_form.phone_number }}</div>
-                {{ form.email.errors }}
-                    <div class="bottom-input"><span class="form-ico email-ico"></span>{{ contact_form.email }}</div>
-                <button class="btn-sbmt"></button>
-            </form>
-        </div>
+    <div class="content content-padding">
+        <!--FILTER_FORM BEGIN-->
+        {% include 'filter_form.html' with filter_form=filter_form %}
+        <!--FILTER_FORM END-->
+        {% block content %} {% endblock %}
     </div>
+        {% include 'user_contact.html' %}
+
+        {% block modal %} {% endblock %}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.3.1/jquery.sidebar.min.js"></script>
@@ -141,7 +89,7 @@
 
     <script type="text/javascript">
 
-        $(document).ready(function() {
+        $(document).ready(function() { 
             $('select').niceSelect();
             $("header").outerHeight($(".slider").height());
 

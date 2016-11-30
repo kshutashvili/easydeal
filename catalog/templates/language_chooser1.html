@@ -1,0 +1,21 @@
+{% load i18n %}
+<div class="setting-group">
+    <form action="{% url 'config:set_currency' %}" method="POST">
+        {% csrf_token %}
+        {{ choose_currency_form.as_p }}
+    </form>
+    <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        {% get_available_languages as LANGUAGES %}
+        <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+        <select name="language" onchange='if(this.value != 0) { this.form.submit(); }'>
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                    {{ language.code|upper }}
+                </option>
+            {% endfor %}
+        </select>
+    </form>
+</div>
