@@ -24,11 +24,11 @@
             <div class="slidebar">
                 <p style="font-size: 30px; color: #fff;height: 50px" id="close-mobile-menu"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></p>
                 <menu>
-                    <a>ГЛАВНАЯ</a>
+                    <a href="/">ГЛАВНАЯ</a>
                     <a>О НАС</a>
-                    <a>ПОКУПКА НЕДВИЖИМОСТИ</a>
+                    <a data-toggle="modal" data-target="#modal_search">ПОКУПКА НЕДВИЖИМОСТИ</a>
                     <a>ИНВЕСТИЦИИ В СТРОИТЕЛЬСТВО</a>
-                    <a>КОНТАКТЫ</a>
+                    <a href="#contact_form">КОНТАКТЫ</a>
                 </menu>
                 <div class="setting-group">
                     <form action="{% url 'config:set_currency' %}" method="POST">
@@ -58,7 +58,7 @@
             <!--END FOR SMALL SCREEN-->
             <div class="col-lg-7 col-md-9 hidden-xs hidden-sm">
                 <menu>
-                    <a>ГЛАВНАЯ</a>|<a>О НАС</a>|<a>ПОКУПКА НЕДВИЖИМОСТИ</a>|<a>ИНВЕСТИЦИИ В СТРОИТЕЛЬСТВО</a>|<a>КОНТАКТЫ</a>
+                    <a href="/">ГЛАВНАЯ</a>|<a>О НАС</a>|<a data-toggle="modal" data-target="#modal_search">ПОКУПКА НЕДВИЖИМОСТИ</a>|<a>ИНВЕСТИЦИИ В СТРОИТЕЛЬСТВО</a>|<a href="#contact_form">КОНТАКТЫ</a>
                 </menu>
             </div>
 
@@ -112,6 +112,7 @@
     {% endblock %}
 
     <div class="bottom content-padding">
+        <a name="contact_form"></a>
         <div class="bottom-arrow">
             Свяжитесь с нами<br>
             <span class="f-25">сейчас!</span>
