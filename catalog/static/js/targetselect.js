@@ -13,6 +13,7 @@
                 select.val($(this).attr("value"));
                 if($(this).attr("next")=="submit"){
                     $(this).parents("form").submit();
+                    alert("submit");
                 }
             });
 
