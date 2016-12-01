@@ -56,30 +56,3 @@ class CatalogFilterForm(forms.Form):
         }),
         required=False,
     )
-
-
-class ModalWindowForm(forms.ModelForm):
-    class Meta:
-        model = ChoiceInfo
-        fields = ('property_type',)
-        widgets = {
-            'property_type': forms.Select(attrs={
-                'class': 'target', 'name': 'type', 'next': 'submit'
-            })
-        }
-
-    def __init__(self, *args, **kwargs):
-        super(ModalWindowForm, self).__init__(*args, **kwargs)
-        self.fields['property_type'].empty_label = None
-        TYPE_FOR_DISPLAY = (
-            ('v', _('Вилла')),
-            ('t', _('Таунхаус')),
-            ('c', _('Кондоминиум')),
-        )
-        choices = [
-            (value, name)
-            for mark, name in TYPE_FOR_DISPLAY
-            for key, value in Property.TYPE
-            if key == mark
-        ]
-        self.fields['property_type'].choices = choices

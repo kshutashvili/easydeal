@@ -46,9 +46,9 @@ class Property(models.Model):
         verbose_name_plural = _('Недвижимость')
 
     TYPE = (
-        ('c', 'condominium'),
-        ('t', 'townhouse'),
-        ('v', 'villa'),
+        ('c', _(u'Кондоминиум')),
+        ('t', _(u'Таунхаус')),
+        ('v', _(u'Вилла')),
     )
     property_type = models.CharField(
         verbose_name=_('Тип недвижимости'),

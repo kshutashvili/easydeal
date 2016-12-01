@@ -64,22 +64,10 @@
         <p class="text-center p-b-20">Можно выбрать несколько районов</p>
         <div class="text-center">
             <div>
-                <div class="choice-place"><div class="choice-text">Кату</div><input class="chckbx" type="checkbox"></div>
-                <div class="choice-place"><div class="choice-text">Ката</div><input class="chckbx" type="checkbox"></div>
-                <div class="choice-place"><div class="choice-text">Бангтао</div><input class="chckbx" type="checkbox"></div>
-                <div class="choice-place"><div class="choice-text">Камала</div><input class="chckbx" type="checkbox"></div>
-            </div>
-            <div>
-                <div class="choice-place"><div class="choice-text">Карон</div><input class="chckbx" type="checkbox"></div>
-                <div class="choice-place"><div class="choice-text">Майкао</div><input class="chckbx" type="checkbox"></div>
-                <div class="choice-place"><div class="choice-text">Раваи</div><input class="chckbx" type="checkbox"></div>
-                <div class="choice-place"><div class="choice-text">Патонг</div><input class="chckbx" type="checkbox"></div>
-            </div>
-            <div>
-                <div class="choice-place"><div class="choice-text">Чалонг</div><input class="chckbx" type="checkbox"></div>
-                <div class="choice-place"><div class="choice-text">Найтон</div><input class="chckbx" type="checkbox"></div>
-                <div class="choice-place"><div class="choice-text">Сурин</div><input class="chckbx" type="checkbox"></div>
-                <div class="choice-place"><div class="choice-text">Найхарн</div><input class="chckbx" type="checkbox"></div>
+                {% for district in districts %}
+                    <div class="choice-place"><div class="choice-text">{{district}}</div><input class="chckbx" type="checkbox" name="district" value="{{ district.id }}" ></div>
+                    {% if forloop.counter|divisibleby:4 %}</div><div>{% endif %}
+                {% endfor %}
             </div>
         </div>
         <div class="text-center p-t-25"><button class="btn-sbmt next-w " next="#pos-5">В ЧЕМ РАЗНИЦА?</button><div class="target-block"><div class="target-text">Далее</div><div class="continue next-w" next="#pos-3"></div></div></div>
@@ -96,7 +84,11 @@
     </div>
     <div class="modal-body">
         <div class="text-center f-0 p-b-25">
-            {{ modal_window_form.property_type }}
+            <select class="target" name="type" next="submit">
+                {% for property_type in property_types %}
+                     <option value="{{ property_type.0 }}">{{ property_type.1 }}</option>
+                {% endfor %}
+            </select>
         </div>
         <div class="text-center"><button class="btn-sbmt next-w" next="#pos-5">В ЧЕМ РАЗНИЦА?</button></div>
     </div>

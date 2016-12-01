@@ -55,7 +55,7 @@ def catalog(request):
         if 'type' in request.GET:
             params['property_type'] = request.GET['type']
         if 'district' in request.GET:
-            params['district'] = request.GET['district']
+            params['district__id__in'] = request.GET.getlist(u'district')
         if 'min_num_bedrooms' in request.GET and request.GET['min_num_bedrooms']:
             params['number_of_bedrooms__gte'] = request.GET['min_num_bedrooms']
         if 'max_num_bedrooms' in request.GET and request.GET['max_num_bedrooms']:
