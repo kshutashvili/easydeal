@@ -30,28 +30,28 @@ class CatalogFilterForm(forms.Form):
     )
     min_num_bedrooms = forms.IntegerField(
         widget=forms.TextInput(attrs={
-            'placeholder': _('Мин.'),
+            'placeholder': _('От'),
             'class': 'filter-input',
         }),
         required=False,
     )
     max_num_bedrooms = forms.IntegerField(
         widget=forms.TextInput(attrs={
-            'placeholder': _('Макс.'),
+            'placeholder': _('До'),
             'class': 'filter-input',
         }),
         required=False,
     )
     min_price = forms.IntegerField(
         widget=forms.TextInput(attrs={
-            'placeholder': _('Мин.'),
+            'placeholder': _('От'),
             'class': 'filter-input',
         }),
         required=False,
     )
     max_price = forms.IntegerField(
         widget=forms.TextInput(attrs={
-            'placeholder': _('Макс.'),
+            'placeholder': _('До'),
             'class': 'filter-input',
         }),
         required=False,
