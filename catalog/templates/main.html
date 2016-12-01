@@ -140,7 +140,10 @@
                 $(prevw).addClass("active");
             });
 
-            setTimeout('$("#modal_search").modal("show")', 2000);
+            if (!$.cookie("isShow")) {
+                $("#modal_search").modal("show");
+                $.cookie("isShow", 1, {expires: 10, path: '/'});
+            }
 
         });
         $("header").outerHeight($(".slider").height());
