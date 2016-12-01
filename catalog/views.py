@@ -13,14 +13,14 @@ class DetailView(TemplateView):
     template_name = 'product_detail.html'
 
     def get(self, request, id):
+        filter_form = CatalogFilterForm(request.GET)
         property = get_object_or_404(Property, pk=id)
-        contact_form = UserContactsForm()
         return render(
             request,
             self.template_name,
             {
                 'property': property,
-                'contact_form': contact_form
+                'filter_form': filter_form
             }
         )
 
@@ -69,7 +69,7 @@ def catalog(request):
 
     paginator = Paginator(property_list, 10)
     page = request.GET.get('page')
-    contact_form = UserContactsForm()
+
     try:
         properties = paginator.page(page)
     except PageNotAnInteger:
@@ -80,8 +80,7 @@ def catalog(request):
     context = {
         'property_list': property_list,
         'properties': properties,
-        'filter_form': filter_form,
-        'contact_form': contact_form,
+        'filter_form': filter_form
     }
 
     return render(request, 'catalog.html', context)

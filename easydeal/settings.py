@@ -79,6 +79,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'config.context_processors.choose_currency',
                 'sekizai.context_processors.sekizai',
+                'context_processors.modal_window.modal_window',
+                'context_processors.contact_form.contact_form',
             ],
         },
     },

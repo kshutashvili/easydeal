@@ -74,7 +74,7 @@
         <!--FILTER_FORM END-->
         {% block content %} {% endblock %}
     </div>
-        {% include 'user_contact.html' %}
+        {% include 'user_contact.html' with contact_form=contact_form %}
 
         {% block modal %} {% endblock %}
 
