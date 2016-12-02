@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import TemplateView
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.views.generic.detail import DetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -9,33 +10,20 @@ from landing.forms import UserContactsForm
 from landing.models import UserContacts, ChoiceInfo
 
 
-class DetailView(TemplateView):
+class PropertyDetailView(DetailView):
     template_name = 'product_detail.html'
+    model = Property
+    pk_url_kwarg = 'id'
 
-    def get(self, request, id):
-        filter_form = CatalogFilterForm(request.GET)
-        property = get_object_or_404(Property, pk=id)
-        return render(
-            request,
-            self.template_name,
-            {
-                'property': property,
-                'filter_form': filter_form
-            }
-        )
+    def get_context_data(self, **kwargs):
+        context = super(PropertyDetailView, self).get_context_data(**kwargs)
+        context['filter_form'] = CatalogFilterForm(self.request.GET)
+        return context
 
-    def post(self, request, id):
-        property = get_object_or_404(Property, pk=id)
+    def post(self, request, *args, **kwargs):
         form = UserContactsForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data.get('name')
-            phone_number = form.cleaned_data.get('phone_number')
-            email = form.cleaned_data.get('email')
-            user_contacts = UserContacts(
-                name=name,
-                phone_number=phone_number,
-                email=email,
-            )
+            user_contacts = form.save(commit=False)
             choice_info_sk = request.session.get('choice_info')
             if choice_info_sk:
                 try:
@@ -45,7 +33,7 @@ class DetailView(TemplateView):
                     pass
             user_contacts.save()
             return redirect('catalog:catalog')
-        return redirect(property)
+        return redirect(reverse('catalog:detail', args=[kwargs.get('id')]))
 
 
 def catalog(request):
