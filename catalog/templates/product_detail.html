@@ -20,8 +20,12 @@
                 <p>количество спален: <span class="red-color">{{ property.number_of_bedrooms }}</span></p>
                 <p>{{ property.additional_info }}</p>
             </div>
+            <div class="full-offer-price col-sm-4 col-xs-12 "><button class="btn-sbmt">25 000 THB</button></div>
         </div>
         <div class="full-offer-gallery col-sm-8 col-xs-12">
+            <div class="offer-badge">
+                RESALE
+            </div>
             <div class="clearfix">
                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
                     {% for photo in property.propertyphoto_set.all %}

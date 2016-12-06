@@ -348,6 +348,10 @@ header{
   margin-top: 35px;
 }
 
+.m-t-55{
+  margin-top: 55px;
+}
+
 .m-b-35{
   margin-bottom: 35px;
 }
@@ -548,14 +552,15 @@ header{
   .news-title{
     margin-top: 0px;
   }
-  .news-date{
-    font-size: 11px;
-    font-style: italic;
-    color: #aeb0b1;
-  }
   .news-text{
     font-size: 13px;
   }
+}
+
+.news-date{
+  font-size: 11px;
+  font-style: italic;
+  color: #aeb0b1;
 }
 
 .perehod {
@@ -907,19 +912,20 @@ header{
     margin: auto;
   }
 
-  .perehod:hover{
-    background-color: #b2b9bb;;
-  }
-
-  .perehod:hover:after{
-    border-color: #fff !important;
-  }
   .continue{
       border: 1px solid #868d8d;
       background-color: transparent;
       height: 40px !important;
     }
 
+}
+
+.perehod:hover{
+  background-color: #b2b9bb;;
+}
+
+.perehod:hover:after{
+  border-color: #fff !important;
 }
 
 .full-offer.row{
@@ -930,10 +936,11 @@ header{
   border-bottom: 1px solid #000;
 }
 .full-offer{
+  position: relative;
   .full-offer-info{
     border-top: 1px solid #000;
     padding: 35px 30px;
-    height: 100%;
+    position: static;
 
     .full-offer-title{
       font-size: 15px;
@@ -955,13 +962,60 @@ header{
       font-size: 12px;
       line-height: 2;
     }
+
+    .full-offer-price{
+      position: absolute;
+      left: 0;
+      padding: 0px 30px ;
+      bottom: 30px;
+
+      .btn-sbmt{
+        width: 100%;
+      }
+    }
   }
   .full-offer-gallery{
     padding: 0px;
+    position: relative;
+    .offer-badge{
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1000;
+    }
 
   }
   p{
     margin: 0px;
+  }
+
+  .btn-sbmt{
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+  .btn-sbmt:hover{
+    background-color: $dark-grey_color;
+    color: #000;
+  }
+
+  .offer-badge{
+    background-color: $red_color;
+    color: #fff;
+    padding: 15px 8px 8px 8px;
+    display: inline-block;
+  }
+
+  .offer-badge:after{
+    top: 100%;
+    left: 0;
+    content: " ";
+    height: 0;
+    width: 100%;
+    position: absolute;
+    border-style: solid;
+    border-width: 25px 34px 0 34px;
+    border-color: $red_color transparent transparent transparent;
+
   }
 }
 
@@ -983,6 +1037,9 @@ header{
   }
 }
 
+.m-t-0{
+  margin-top: 0px !important;
+}
 .p-t-25{
   padding-top: 25px;
 }
@@ -1128,11 +1185,15 @@ header{
   font-size: 12px;
   padding-right: 40px;
   text-align: center;
-  .target-text{
+  .target-text, .target-text-border{
     @include align-items(center);
     height: 100%;
   }
 
+  .target-text-border{
+    border: 1px solid $dark-grey_color;
+    border-right: none;
+  }
   .continue{
     position: absolute;
     right: 0px;
@@ -1194,6 +1255,69 @@ header{
   padding: 0px 25px;
 }
 
+.state-prev{
+  margin-bottom: 40px;
+  .col-xs-4,.col-xs-5, .col-xs-7, .col-xs-8{
+    padding: 0px;
+  }
+  .state-info{
+    padding-left: 10px;
+    position: relative;
+    .state-title{
+      min-height: 50px;
+      padding-right: 50px;
+      font-size: 13px;
+      border-bottom: 1px solid $dark-grey_color;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    .perehod{
+      position: absolute;
+      top:0px;
+      right: 0px;
+    }
+
+    .state-description{
+      font-size: 11px;
+    }
+  }
+
+  .state-img{
+    width: 100%;
+  }
+  p{
+    margin: 0px;
+  }
+}
+
+.full_news-detail{
+  .full_news_title, .news-date{
+    margin: 0px;
+  }
+
+  .full_news_header{
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $dark-grey_color;
+  }
+
+  .full_news_text{
+    font-size: 11px;
+  }
+}
+
+.page_title{
+  padding: 40px 0px;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+  border-bottom: 1px solid $dark-grey_color;
+}
+
+.page_text{
+  padding: 30px 0px 50px 0px;
+  font-size: 11px;
+}
 
 @media screen and (max-width:1400px){
   .content-padding, header{
@@ -1341,6 +1465,13 @@ header{
   }
   .full-offer{
     border-right: 1px solid #000;
+    .full-offer-info{
+      .full-offer-price{
+        position: static;
+        padding: 0px;
+        margin-top: 10px;
+      }
+    }
   }
 
   .choice-place{
@@ -1372,6 +1503,7 @@ header{
   .btn-sbmt{
     width: 100%;
   }
+
   .target-block{
     width: 100%;
     margin-right: 0px;
