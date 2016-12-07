@@ -32,17 +32,17 @@
             </menu>
                 
                 {% include 'language_chooser1.html' %}
+        </div>
+        <!--FOR SMALL SCREEN-->
+        <div class="hidden-lg hidden-md col-xs-6"></div>
+        <!--END FOR SMALL SCREEN-->
+        <div class="col-lg-7 col-md-9 hidden-xs hidden-sm">
+            <menu>
+                <a href="/">ГЛАВНАЯ</a>|<a>О НАС</a>|<a data-toggle="modal" data-target="#modal_search">ПОКУПКА НЕДВИЖИМОСТИ</a>|<a>ИНВЕСТИЦИИ В СТРОИТЕЛЬСТВО</a>|<a href="#contact_form">КОНТАКТЫ</a>
+            </menu>
+        </div>
 
-            <!--FOR SMALL SCREEN-->
-            <div class="hidden-lg hidden-md col-xs-6"></div>
-            <!--END FOR SMALL SCREEN-->
-            <div class="col-lg-7 col-md-9 hidden-xs hidden-sm">
-                <menu>
-                    <a href="/">ГЛАВНАЯ</a>|<a>О НАС</a>|<a data-toggle="modal" data-target="#modal_search">ПОКУПКА НЕДВИЖИМОСТИ</a>|<a>ИНВЕСТИЦИИ В СТРОИТЕЛЬСТВО</a>|<a href="#contact_form">КОНТАКТЫ</a>
-                </menu>
-            </div>
-
-            {% include 'language_chooser2.html' %}
+        {% include 'language_chooser2.html' %}
 
         </div>
         <div class="slider">
