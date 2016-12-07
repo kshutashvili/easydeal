@@ -81,6 +81,7 @@ TEMPLATES = [
                 'sekizai.context_processors.sekizai',
                 'context_processors.modal_window.modal_window',
                 'context_processors.contact_form.contact_form',
+                'context_processors.catalog_form.catalog_form',
             ],
         },
     },

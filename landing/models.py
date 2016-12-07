@@ -115,3 +115,25 @@ class UserContacts(models.Model):
             self.phone_number,
             self.email,
         )
+
+
+class StaticPage(models.Model):
+    class Meta:
+        verbose_name = _('Простая страница')
+        verbose_name_plural = _('Простые страницы')
+
+    title = models.CharField(
+        verbose_name=_('Заголовок'),
+        max_length=256,
+    )
+    content = RichTextField(
+        verbose_name=_('Содержание')
+    )
+    slug = models.SlugField(
+        verbose_name=_('URL адрес'),
+        max_length=150,
+        unique=True,
+    )
+
+    def __unicode__(self):
+        return self.title

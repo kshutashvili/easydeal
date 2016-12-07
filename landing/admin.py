@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from .models import Article, UserContacts, ChoiceInfo
+from django.urls import reverse
+from .models import Article, UserContacts, ChoiceInfo, StaticPage
 
 
 class UserContactsAdmin(admin.ModelAdmin):
@@ -43,6 +44,22 @@ class ChoiceInfoAdmin(admin.ModelAdmin):
     get_districts.short_description = ('Районы')
 
 
+class StaticPageAdmin(admin.ModelAdmin):
+
+    list_display = (
+        'title',
+        'slug_url',
+    )
+
+    def slug_url(self, obj):
+        url = reverse('landing:static_page', kwargs={'slug': obj.slug})
+        return u"<a href='{}'>{}</a>".format(url, url)
+
+    slug_url.short_description = 'URL адрес'
+    slug_url.allow_tags = True
+
+
 admin.site.register(Article)
 admin.site.register(ChoiceInfo, ChoiceInfoAdmin)
 admin.site.register(UserContacts, UserContactsAdmin)
+admin.site.register(StaticPage, StaticPageAdmin)
