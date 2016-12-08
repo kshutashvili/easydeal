@@ -4,6 +4,8 @@ from django import template
 from django.template.defaultfilters import floatformat
 from config.models import SiteConfiguration
 
+from landing.models import StaticPage
+
 
 config = SiteConfiguration.get_solo()
 register = template.Library()
@@ -23,3 +25,12 @@ def get_price(property, request):
     else:
         result_price = str(floatformat(price)) + ' THB'
     return result_price
+
+
+@register.simple_tag
+def get_static_page(slug):
+    try:
+        static_page = StaticPage.objects.get(slug=slug)
+    except StaticPage.DoesNotExist:
+        static_page = None
+    return static_page

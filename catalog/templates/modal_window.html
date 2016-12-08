@@ -1,4 +1,4 @@
-{% load static %}
+{% load static catalog_extras %}
 <form action="{% url 'catalog:catalog' %}" method="get">
 <div class="modal-content pos-0 active" id="pos-0" position="0">
     <div class="modal-header ">
@@ -42,7 +42,7 @@
     </div>
     <div class="modal-body">
         <div class="text-center f-0 p-b-25">
-            <select class="target" name="buy" next="#pos-2">
+            <select class="target" next="#pos-2">
                 <option value="Проживание">Проживание</option>
                 <option value="Инвестиция + Проживание">Инвестиция + Проживание</option>
                 <option value="Инвестиция">Инвестиция</option>
@@ -94,22 +94,17 @@
     </div>
 </div>
 <div class="modal-content pos-4" id="pos-4" position="3">
+    {% get_static_page 'inveefst-in-construction' as invest %}
     <div class="modal-header">
         <div class="button-block">
             <button type="button" class="continue continue-prev prev-w"></button>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
-        <p class="modal-title red-color">Инвестиции в строительство</p>
+        <p class="modal-title red-color">{{ invest.title }}</p>
     </div>
     <div class="modal-body">
         <div class="f-11">
-            Пхукет расположен у западного побережья Таиланда, в Андаманском море Индийского океана.
-            Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами. Ранее процветание Пхукета, имеющего богатую и яркую историю, зиждил ось на добыче олова и каучука. И поскольку он находился на одном из основных торговых путей между Индией и Китаем,    оянно упоминался в корабельных журналах португальских, французских, голландских и английских купцов. Сегодня провинция основную часть своих доходов получает благодаря огромной туристической популярности острова как морского курорта.
-            <br><br>
-            Пхукет расположен у западного побережья Таиланда, в Андаманском море Индийского океана.
-            Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами. Ранее процветание Пхукета, имеющего богатую и яркую историю, зиждил ось на добыче олова и каучука. И поскольку он находился на одном из основных торговых путей между Индией и Китаем,    оянно упоминался в корабельных журналах португальских, французских, голландских и английских купцов.
-            <br><br>
-            Сегодня провинция основную часть своих доходов получает благодаря огромной туристической популярности острова как морского курорта.
+            {{ invest.content|safe }}
         </div>
         <div class="text-center p-t-25"><div class="target-block"><div class="target-text">ВЕРНУТЬСЯ К ПОИСКУ</div><div class="continue prev-w"></div></div></div>
     </div>
