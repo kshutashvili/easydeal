@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+	{{ article.header }}
+{% endblock title %}
+
+{% block content %}
+	<div class="search-result text-center">
+        СТАТЬИ
+    </div>
+    <div class="full_news-detail">
+        <div class="full_news_header">
+            <h3 class="full_news_title">{{ article.header }}</h3>
+            <p class="news-date">{{ article.date|date:"d F / Y" }}</p>
+        </div>
+        <div class="full_news_text">
+            {{ article.text|safe }}
+        </div>
+    </div>
+    <div class="text-center m-t-55 m-b-35">
+        <div class="target-block">
+        	<div class="target-text-border">ВЕРНУТЬСЯ К СТАТЬЯМ</div>
+        	<a href="#"><div class="continue prev-w"></div></a>
+        </div>
+    </div>
+{% endblock content %}
