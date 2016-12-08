@@ -13,13 +13,13 @@ class SiteConfiguration(SingletonModel):
     class Meta:
         verbose_name = _('Конфигурация сайта')
 
-    ru = models.CharField(
+    ru = models.TextField(
         verbose_name=_('Текст на русском'),
-        max_length=50
+        max_length=400
     )
-    en = models.CharField(
+    en = models.TextField(
         verbose_name=_('Текст на английском'),
-        max_length=50
+        max_length=400
     )
     targets_info = models.OneToOneField(
         Article,
