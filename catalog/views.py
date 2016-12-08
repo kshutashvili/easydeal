@@ -1,13 +1,9 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.core.exceptions import ObjectDoesNotExist
 
 from catalog.models import Property
 from catalog.forms import CatalogFilterForm
-from landing.forms import UserContactsForm
-from landing.models import UserContacts, ChoiceInfo
 
 
 class PropertyDetailView(DetailView):
@@ -19,21 +15,6 @@ class PropertyDetailView(DetailView):
         context = super(PropertyDetailView, self).get_context_data(**kwargs)
         context['filter_form'] = CatalogFilterForm(self.request.GET)
         return context
-
-    def post(self, request, *args, **kwargs):
-        form = UserContactsForm(request.POST)
-        if form.is_valid():
-            user_contacts = form.save(commit=False)
-            choice_info_sk = request.session.get('choice_info')
-            if choice_info_sk:
-                try:
-                    choice_info = ChoiceInfo.objects.get(session_key=choice_info_sk)
-                    user_contacts.session_key = choice_info
-                except ObjectDoesNotExist:
-                    pass
-            user_contacts.save()
-            return redirect('catalog:catalog')
-        return redirect(reverse('catalog:detail', args=[kwargs.get('id')]))
 
 
 def catalog(request):
