@@ -48,7 +48,11 @@
                 <option value="Инвестиция">Инвестиция</option>
             </select>
         </div>
-        <div class="text-center"><button class="btn-sbmt next-w" next="#pos-5">В ЧЕМ РАЗНИЦА?</button></div>
+        {% if targets_info %}
+            <div class="text-center">
+                <button type="button" class="btn-sbmt next-w" next="#pos-5">В ЧЕМ РАЗНИЦА?</button>
+            </div>
+        {% endif %}
     </div>
 </div>
 
@@ -70,7 +74,14 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="text-center p-t-25"><button class="btn-sbmt next-w " next="#pos-5">В ЧЕМ РАЗНИЦА?</button><div class="target-block"><div class="target-text">Далее</div><div class="continue next-w" next="#pos-3"></div></div></div>
+        <div class="text-center p-t-25">
+            {% if districts_info %}
+                <button type="button" class="btn-sbmt next-w " next="#pos-6">В ЧЕМ РАЗНИЦА?</button>
+            {% endif %}
+            <div class="target-block">
+                <div class="target-text">Далее</div><div class="continue next-w" next="#pos-3"></div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -90,7 +101,11 @@
                 {% endfor %}
             </select>
         </div>
-        <div class="text-center"><button class="btn-sbmt next-w" next="#pos-5">В ЧЕМ РАЗНИЦА?</button></div>
+        <div class="text-center">
+            {% if property_types_info %}
+                <button type="button" class="btn-sbmt next-w" next="#pos-7">В ЧЕМ РАЗНИЦА?</button>
+            {% endif %}
+        </div>
     </div>
 </div>
 <div class="modal-content pos-4" id="pos-4" position="3">
@@ -109,26 +124,57 @@
         <div class="text-center p-t-25"><div class="target-block"><div class="target-text">ВЕРНУТЬСЯ К ПОИСКУ</div><div class="continue prev-w"></div></div></div>
     </div>
 </div>
-<div class="modal-content pos-5" id="pos-5" position="3">
-    <div class="modal-header">
-        <div class="button-block">
-            <button type="button" class="continue continue-prev prev-w"></button>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+{% if targets_info %}
+    <div class="modal-content pos-5" id="pos-5" position="3">
+        <div class="modal-header">
+            <div class="button-block">
+                <button type="button" class="continue continue-prev prev-w"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <p class="modal-title red-color">{{ targets_info.header }}</p>
         </div>
-        <p class="modal-title red-color">в чем разница?</p>
+        <div class="modal-body">
+            <div class="f-11">
+                {{ targets_info.text|safe }}
+            </div>
+            <div class="text-center p-t-25"><div class="target-block"><div class="target-text">ВЕРНУТЬСЯ К ПОИСКУ</div><div class="continue prev-w"></div></div></div>
+        </div>
     </div>
-    <div class="modal-body">
-        <div class="f-11">
-            Пхукет расположен у западного побережья Таиланда, в Андаманском море Индийского океана.
-            Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами. Ранее процветание Пхукета, имеющего богатую и яркую историю, зиждил ось на добыче олова и каучука. И поскольку он находился на одном из основных торговых путей между Индией и Китаем,    оянно упоминался в корабельных журналах португальских, французских, голландских и английских купцов. Сегодня провинция основную часть своих доходов получает благодаря огромной туристической популярности острова как морского курорта.
-            <br><br>
-            Пхукет расположен у западного побережья Таиланда, в Андаманском море Индийского океана.
-            Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами. Ранее процветание Пхукета, имеющего богатую и яркую историю, зиждил ось на добыче олова и каучука. И поскольку он находился на одном из основных торговых путей между Индией и Китаем,    оянно упоминался в корабельных журналах португальских, французских, голландских и английских купцов.
-            <br><br>
-            Сегодня провинция основную часть своих доходов получает благодаря огромной туристической популярности острова как морского курорта.
+{% endif %}
 
+{% if districts_info %}
+    <div class="modal-content pos-5" id="pos-6" position="3">
+        <div class="modal-header">
+            <div class="button-block">
+                <button type="button" class="continue continue-prev prev-w"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <p class="modal-title red-color">{{ districts_info.header }}</p>
         </div>
-        <div class="text-center p-t-25"><div class="target-block"><div class="target-text">ВЕРНУТЬСЯ К ПОИСКУ</div><div class="continue prev-w"></div></div></div>
+        <div class="modal-body">
+            <div class="f-11">
+                {{ districts_info.text|safe }}
+            </div>
+            <div class="text-center p-t-25"><div class="target-block"><div class="target-text">ВЕРНУТЬСЯ К ПОИСКУ</div><div class="continue prev-w"></div></div></div>
+        </div>
     </div>
-</div>
+{% endif %}
+
+{% if property_types_info %}
+    <div class="modal-content pos-5" id="pos-7" position="3">
+        <div class="modal-header">
+            <div class="button-block">
+                <button type="button" class="continue continue-prev prev-w"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <p class="modal-title red-color">{{ property_types_info.header }}</p>
+        </div>
+        <div class="modal-body">
+            <div class="f-11">
+                {{ property_types_info.text|safe }}
+            </div>
+            <div class="text-center p-t-25"><div class="target-block"><div class="target-text">ВЕРНУТЬСЯ К ПОИСКУ</div><div class="continue prev-w"></div></div></div>
+        </div>
+    </div>
+{% endif %}
 </form>
