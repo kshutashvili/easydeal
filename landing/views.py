@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from django.views.generic import View
+from django.views.generic import ListView
 from django.core.exceptions import ObjectDoesNotExist
 
 from catalog.forms import CatalogFilterForm
@@ -35,6 +36,14 @@ def article(request, slug):
         'article': article,
     }
     return render(request, 'landing/article.html', context)
+
+
+class ArticlesListView(ListView):
+    model = Article
+    template_name = 'landing/articles.html'
+    context_object_name = "articles"
+    paginate_by = 6
+    queryset = Article.objects.filter(is_published=True)
 
 
 class UserContactsView(View):

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Статьи
+{% endblock title %}
+
+{% block content %}
+<div class="search-result text-center">
+         СТАТЬИ
+    </div>
+    <div class="catalog">
+        <div class="row">
+            {% for article in articles %}
+                <div class="state-prev col-sm-6 col-xs-12">
+                    <div class="col-xs-5"><img class="state-img" src="{{ article.image.url }}"></div>
+                    <div class="col-xs-7 state-info">
+                        <div class="state-title">
+                            <p>{{ article.header }}</p>
+                            <p class="news-date">{{ article.date|date:"d F / Y" }}</p>
+                            <a href="{{ article.get_absolute_url }}"><div class="perehod"></div></a>
+                        </div>
+                        <div class="state-description">
+                            {{ article.text|truncatechars:100|safe }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% if is_paginated %}
+        <div class="paginator m-t-0">
+            <div class="pager">
+                    {{ articles.has_next}}               
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}" class="perehod prev"></a>
+                {% endif %}
+                {% for page in paginator.page_range %}
+                    <a 
+                        {% if page == page_obj.number %}
+                            class="page current"
+                        {% else %}
+                            class="page"
+                        {% endif %}
+                        href="?page={{ page }}">
+                        {{ page }}
+                    </a>
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="perehod next"></a>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+    
+{% endblock content %}

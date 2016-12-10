@@ -20,6 +20,10 @@ class Article(models.Model):
         verbose_name=_('Заголовок'),
         max_length=50,
         blank=False)
+    image = models.ImageField(
+        verbose_name=_('Фото'),
+        upload_to='articles',
+    )
     text = RichTextField(
         verbose_name=_('Текст'),
         max_length=200,
@@ -35,8 +39,7 @@ class Article(models.Model):
     is_published = models.BooleanField(default=False)
 
     def get_absolute_url(self):
-        pass
-        # return reverse('func_name', args=[str(self.id)])
+        return reverse('landing:article', args=[self.slug])
 
     def __unicode__(self):
         return '%s %s %s %s' % (
