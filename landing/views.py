@@ -8,12 +8,16 @@ from .forms import UserContactsForm
 from .models import UserContacts, ChoiceInfo
 from landing.models import StaticPage
 from landing.models import Article
+from catalog.models import Property
 
 
 def main(request):
     context = {
         'filter_form': CatalogFilterForm(request.GET)
     }
+    hot_property = Property.objects.filter(hot=True).order_by('price')[:3]
+    if hot_property.count() == 3:
+        context['hot_property'] = hot_property
     return render(request, 'main.html', context)
 
 

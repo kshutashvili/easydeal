@@ -80,6 +80,10 @@ class Property(models.Model):
         max_digits=10,
         decimal_places=2
     )
+    hot = models.BooleanField(
+        verbose_name=_('Горячее'),
+        default=False
+    )
 
     def __unicode__(self):
         return '%s %s %s %s' % (

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load static %}
+{% load static imagefit %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/all.css' %}">
@@ -34,44 +34,22 @@
                 <div class="cur-block">
                     <p class="block-h red-color">ГОРЯЧИЕ ПРЕДЛОЖЕНИЯ</p>
                     <div class="row fire-offer">
-                        <!-- OFFER_BLOCK BEGIN-->
-                        <div class="col-sm-4 col-xs-12 offer-block">
-                            <img class="offer-img" src="{% static "images/offer/img-1.png" %}">
-                            <div class="offer-decrption">
-                                <div class="hotel-title">
-                                    <p class="hotel-name">Жемчужина Таиланда</p>
-                                    <p class="hotel-info">Номера 1-го класса</p>
+                        {% if hot_property %}
+                            {% for property in hot_property %}
+                                <!-- OFFER_BLOCK BEGIN-->
+                                <div class="col-sm-4 col-xs-12 offer-block">
+                                    <img class="offer-img" src="{{ property.propertyphoto_set.first.image.url|resize:'thumbnail' }}">
+                                    <div class="offer-decrption">
+                                        <div class="hotel-title">
+                                            <p class="hotel-name">{{ property.name }}</p>
+                                            <p class="hotel-info">{{ property.additional_info }}</p>
+                                        </div>
+                                        <a href="{% url 'catalog:detail' property.id %}"><div class="continue"></div></a>
+                                    </div>
                                 </div>
-                                <a href="#"><div class="continue"></div></a>
-                            </div>
-                        </div>
-                        <!-- OFFER_BLOCK END-->
-
-                        <!-- OFFER_BLOCK BEGIN-->
-                        <div class="col-sm-4 col-xs-12 offer-block">
-                            <img class="offer-img" src="{% static "images/offer/img-1.png" %}">
-                            <div class="offer-decrption">
-                                <div class="hotel-title">
-                                    <p class="hotel-name">Жемчужина Таиланда</p>
-                                    <p class="hotel-info">Номера 1-го класса</p>
-                                </div>
-                                <a href="#"><div class="continue"></div></a>
-                            </div>
-                        </div>
-                        <!-- OFFER_BLOCK END-->
-
-                        <!-- OFFER_BLOCK BEGIN-->
-                        <div class="col-sm-4 col-xs-12 offer-block">
-                            <img class="offer-img" src="{% static "images/offer/img-1.png" %}">
-                            <div class="offer-decrption">
-                                <div class="hotel-title">
-                                    <p class="hotel-name">Жемчужина Таиланда</p>
-                                    <p class="hotel-info">Номера 1-го класса</p>
-                                </div>
-                                <a href="#"><div class="continue"></div></a>
-                            </div>
-                        </div>
-                        <!-- OFFER_BLOCK END-->
+                                <!-- OFFER_BLOCK END-->
+                            {% endfor %}
+                        {% endif %}
                     </div>
                     <div class="text-center m-t-35"><a href="#"><button class="btn-sbmt">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></a></div>
                 </div>

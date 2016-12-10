@@ -15,7 +15,8 @@ class PropertyAdmin(admin.ModelAdmin):
         'distance_to_beach',
         'space',
         'number_of_bedrooms',
-        'price'
+        'price',
+        'hot'
     )
     list_filter = ['property_type']
     inlines = [PropertyPhotoInline]
