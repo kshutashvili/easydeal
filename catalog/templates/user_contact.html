@@ -3,7 +3,7 @@
         Свяжитесь с нами<br>
         <span class="f-25">сейчас!</span>
     </div>
-    <div class="contact-form">
+    <div class="contact-form" id="user_contacts">
         <form action="{% url 'landing:user_contacts' %}" method="post">{% csrf_token %}
             {{ contact_form.non_field_errors }}
             {{ contact_form.name.errors }}
