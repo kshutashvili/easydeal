@@ -1200,6 +1200,39 @@ header {
         width: 90%; }
     .bottom .contact-form .btn-sbmt {
       float: right; } }
+.contact-info {
+  padding: 12px;
+  background-color: #b2b9bb;
+  text-align: center;
+  color: #fff;
+  font-size: 0px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center; }
+  .contact-info .contact-email {
+    font-size: 15px;
+    margin-left: 20px; }
+  .contact-info .razdelitel {
+    font-size: 0px;
+    border-left: 2px solid #fff;
+    height: 30px;
+    display: inline-block; }
+  .contact-info .contact-phone {
+    font-size: 14px;
+    margin-right: 20px; }
+
 @media screen and (max-width: 768px) {
   header {
     padding-top: 15px; }

@@ -1455,6 +1455,29 @@ header{
   }
 }
 
+.contact-info{
+  padding: 12px;
+  background-color: #b2b9bb;
+  text-align: center;
+  color: #fff;
+  font-size: 0px;
+  @include align-items(center);
+  .contact-email{
+    font-size: 15px;
+    margin-left: 20px;
+  }
+  .razdelitel{
+    font-size: 0px;
+    border-left: 2px solid #fff;
+    height: 30px;
+    display: inline-block;
+  }
+  .contact-phone{
+    font-size: 14px;
+    margin-right: 20px;
+  }
+}
+
 @media screen and (max-width: 768px){
   header{
     padding-top: 15px;
