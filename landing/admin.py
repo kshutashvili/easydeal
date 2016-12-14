@@ -2,7 +2,14 @@
 
 from django.contrib import admin
 from django.urls import reverse
+
+from modeltranslation.admin import TabbedTranslationAdmin
+
 from .models import Article, UserContacts, ChoiceInfo, StaticPage
+
+
+class ArticleAdmin(TabbedTranslationAdmin):
+    pass
 
 
 class UserContactsAdmin(admin.ModelAdmin):
@@ -59,7 +66,7 @@ class StaticPageAdmin(admin.ModelAdmin):
     slug_url.allow_tags = True
 
 
-admin.site.register(Article)
+admin.site.register(Article, ArticleAdmin)
 admin.site.register(ChoiceInfo, ChoiceInfoAdmin)
 admin.site.register(UserContacts, UserContactsAdmin)
 admin.site.register(StaticPage, StaticPageAdmin)
