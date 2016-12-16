@@ -20,7 +20,7 @@
                         </div>
                         <div class="offer-price">
                             <span class="price">{{ property|get_price:request }}</span>
-                            <a class="continue"></a>
+                            <a href="{{ property.get_absolute_url }}" class="continue"></a>
                         </div>
                     </div>
                 </div>
