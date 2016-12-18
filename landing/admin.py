@@ -51,7 +51,7 @@ class ChoiceInfoAdmin(admin.ModelAdmin):
     get_districts.short_description = ('Районы')
 
 
-class StaticPageAdmin(admin.ModelAdmin):
+class StaticPageAdmin(TabbedTranslationAdmin):
 
     list_display = (
         'title',

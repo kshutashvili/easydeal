@@ -25,5 +25,8 @@ class PropertyAdmin(TabbedTranslationAdmin):
     inlines = [PropertyPhotoInline]
     
 
-admin.site.register(District)
+class DistrictAdmin(TabbedTranslationAdmin):
+    pass
+
+admin.site.register(District, DistrictAdmin)
 admin.site.register(Property, PropertyAdmin)

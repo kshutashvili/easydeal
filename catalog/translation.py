@@ -11,5 +11,5 @@ class DistrictTranslationOptions(TranslationOptions):
 @register(Property)
 class PropertyTranslationOptions(TranslationOptions):
     fields = (
-        'property_type', 'name', 'district', 'additional_info'
+        'name', 'additional_info'
     )
