@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from catalog.models import Property
@@ -53,3 +54,13 @@ def catalog(request):
     }
 
     return render(request, 'catalog.html', context)
+
+
+class HotView(ListView):
+    template_name = 'catalog.html'
+    model = Property
+
+    def get_context_data(self, **kwargs):
+        context = super(HotView, self).get_context_data(**kwargs)
+        context['properties'] = Property.objects.filter(hot=True).order_by('price')
+        return context
