@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'modeltranslation',
-    
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'solo',
-    'imagefit',
+    'easy_thumbnails',
     'sekizai',
 
     'landing',
@@ -156,24 +156,16 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
 
-IMAGEFIT_CACHE_BACKEND_NAME = 'imagefit'
-
-IMAGEFIT_CACHE_ENABLED = True
-
-IMAGEFIT_EXT_TO_FORMAT = {'.jpg': 'jpeg', '.bmp': 'png'}
-
-IMAGEFIT_PRESETS = {
-    'thumbnail': {'width': 155, 'height': 103}
+THUMBNAIL_ALIASES = {
+    '': {
+        'thumbnail': {'size': (155, 103), 'crop': True},
+    },
 }
 
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': '127.0.0.1:11211',
-    },
-    'imagefit': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': os.path.join(tempfile.gettempdir(), 'django_imagefit')
     },
 }
 

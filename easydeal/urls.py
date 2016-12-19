@@ -23,7 +23,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    url(r'^imagefit/', include('imagefit.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

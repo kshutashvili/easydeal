@@ -4,7 +4,6 @@ django-appconf==1.0.2
 django-bootstrap3==7.1.0
 django-ckeditor==5.1.1
 django-classy-tags==0.8.0
--e git+https://github.com/vinyll/django-imagefit.git@0731c31427aab52cc315ed656886daf0792fea86#egg=django_imagefit
 django-modeltranslation==0.12
 django-phonenumber-field==1.1.0
 django-sekizai==0.10.0
@@ -13,3 +12,4 @@ MySQL-python==1.2.5
 phonenumberslite==7.7.3
 Pillow==3.4.2
 pytz==2016.7
+easy-thumbnails==2.3

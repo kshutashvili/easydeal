@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load imagefit catalog_extras %}
+{% load thumbnail catalog_extras %}
 {% block title %}Каталог{% endblock %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/lightslider.css' %}">
@@ -29,7 +29,7 @@
             <div class="clearfix">
                 <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
                     {% for photo in property.propertyphoto_set.all %}
-                        <li data-thumb="{{ photo.image.url|resize:'thumbnail' }}">
+                        <li data-thumb="{{ photo.image|thumbnail_url:'thumbnail' }}">
                             <img src="{{ photo.image.url }}" />
                     {% endfor %}
                     </li>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load static imagefit solo_tags %}
+{% load static solo_tags thumbnail %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/all.css' %}">
@@ -38,7 +38,8 @@
                             {% for property in hot_property %}
                                 <!-- OFFER_BLOCK BEGIN-->
                                 <div class="col-sm-4 col-xs-12 offer-block">
-                                    <img class="offer-img" src="{{ property.propertyphoto_set.first.image.url|resize:'thumbnail' }}">
+                                    <img class="offer-img" src="{{ property.propertyphoto_set.first.image|thumbnail_url:'thumbnail' }}"/>
+
                                     <div class="offer-decrption">
                                         <div class="hotel-title">
                                             <p class="hotel-name">{{ property.name }}</p>
