@@ -14,7 +14,7 @@
             <p class="full-offer-apart">апартаменты класса люкс</p>
             <div class="full-offer-charact">
                 <p>район: <span class="red-color">{{ property.district }}</span></p>
-                <p>завершение строительства: <span class="red-color"><nobr>май-апрель</nobr> 2017</span></p>
+                <p>завершение строительства: <span class="red-color"><nobr>{{ property.end_building|date:'F'|lower }}</nobr> {{ property.end_building|date:'Y' }}</span></p>
                 <p>расстояние до пляжа: <span class="red-color">{{ property.distance_to_beach }} км</span></p>
                 <p>общая площадь: <span class="red-color">{{ property.space }} м<sup>2</sup></span></p>
                 <p>количество спален: <span class="red-color">{{ property.number_of_bedrooms }}</span></p>

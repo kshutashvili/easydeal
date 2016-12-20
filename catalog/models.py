@@ -84,6 +84,12 @@ class Property(models.Model):
         verbose_name=_('Горячее'),
         default=False
     )
+    end_building = models.DateField(
+        verbose_name=_('Дата завершения строительства'),
+        help_text=_(
+            'Имеет значение только месяц и год. День можно указать любой.'
+        )
+    )
 
     def __unicode__(self):
         return '%s %s %s %s' % (
