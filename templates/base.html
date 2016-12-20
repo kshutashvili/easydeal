@@ -80,7 +80,15 @@
     </div>
         {% include 'user_contact.html' with contact_form=contact_form %}
 
-        {% block modal %} {% endblock %}
+        {% block modal %}
+            <!-- MODAL FORM-->
+                <div class="modal fade" id="modal_search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" id="dynamic_screen" role="document">
+                        {% include 'modal_window.html' %}
+                    </div>
+                </div>
+            <!-- -->
+        {% endblock %}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sidebar/3.3.1/jquery.sidebar.min.js"></script>
