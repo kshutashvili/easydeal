@@ -52,33 +52,25 @@
                             {% endfor %}
                         {% endif %}
                     </div>
-                    <div class="text-center m-t-35"><a href="{% url 'catalog:hot' %}"><button class="btn-sbmt">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></a></div>
+                    <div class="text-center m-t-35"><a href="{% url 'catalog:catalog' %}"><button class="btn-sbmt">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></a></div>
                 </div>
                 <div class="cur-block">
                     <p class="block-h">СТАТЬИ И НОВОСТИ</p>
                     <div class="row m-0">
-                        <div class="col-sm-6 col-xs-12 wrap-nws">
-                            <a href="#"><div class="perehod"></div></a>
-                            <div class="news-block">
-                                <p class="news-title">Лучшие экскурсии на острове Пхукете</p>
-                                <p class="news-date">31 октября / 2016</p>
-                                <div class="news-text">
-                                    Пхукет расположен у западного побережья Таиланда, в Андаманском море. Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами.
+                        {% for article in articles %}
+                            <div class="col-sm-6 col-xs-12 wrap-nws">
+                                <a href="{% url 'landing:article' article.slug %}"><div class="perehod"></div></a>
+                                <div class="news-block">
+                                    <p class="news-title">{{ article.header }}</p>
+                                    <p class="news-date">{{ article.date }}</p>
+                                    <div class="news-text">
+                                        {{ article.text|safe|slice:":100" }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6 col-xs-12 wrap-nws">
-                            <a href="#"><div class="perehod"></div></a>
-                            <div class="news-block">
-                                <p class="news-title">Лучшие экскурсии на острове Пхукете этим летом</p>
-                                <p class="news-date">31 октября / 2016</p>
-                                <div class="news-text">
-                                    Пхукет расположен у западного побережья Таиланда, в Андаманском море. Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами.
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
-                    <div class="text-center m-t-35"><a href="#"><button class="btn-all">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></a></div>
+                    <div class="text-center m-t-35"><a href="{% url 'landing:articles' %}"><button class="btn-all">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></a></div>
                 </div>
             </div>
         </div>

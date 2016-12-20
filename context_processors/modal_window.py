@@ -1,11 +1,12 @@
-from django.http.request import HttpRequest
 from catalog.models import Property
 from catalog.models import District
 from config.models import SiteConfiguration
 
 
 config = SiteConfiguration.get_solo()
-def modal_window(HttpRequest):
+
+
+def modal_window(request):
     return {
         'property_types': Property.TYPE,
         'districts': District.objects.all()[:12],

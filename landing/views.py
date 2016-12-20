@@ -6,7 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from catalog.forms import CatalogFilterForm
 from .forms import UserContactsForm
-from .models import UserContacts, ChoiceInfo
+from .models import ChoiceInfo
 from landing.models import StaticPage
 from landing.models import Article
 from catalog.models import Property
@@ -16,9 +16,15 @@ def main(request):
     context = {
         'filter_form': CatalogFilterForm(request.GET)
     }
+
+    articles = Article.objects.filter(is_published=True).order_by('-date')[:2]
+    if articles.count() == 2:
+        context['articles'] = articles
+
     hot_property = Property.objects.filter(hot=True).order_by('price')[:3]
     if hot_property.count() == 3:
         context['hot_property'] = hot_property
+
     return render(request, 'main.html', context)
 
 
