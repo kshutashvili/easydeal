@@ -5,23 +5,22 @@ from django.template.defaultfilters import floatformat
 from config.models import SiteConfiguration
 
 from landing.models import StaticPage
+from catalog.utils import get_price_currency
 
 
 config = SiteConfiguration.get_solo()
 register = template.Library()
+
+
 @register.filter(name='get_price')
 def get_price(property, request):
     price = property.price
     if 'currency' in request.session:
         currency = request.session['currency']
-        if currency == 'USD':
-            result_price = str(floatformat(price * config.usd_rate)) + ' USD'
-        elif currency == 'EUR':
-            result_price = str(floatformat(price * config.euro_rate)) + ' EURO'
-        elif currency == 'RUB':
-            result_price = str(floatformat(price * config.rub_rate)) + ' РУБ'
-        else:
-            result_price = str(floatformat(price)) + ' THB'
+        result_price = '{} {}'.format(
+            str(floatformat(get_price_currency(price, currency))),
+            currency,
+        )
     else:
         result_price = str(floatformat(price)) + ' THB'
     return result_price

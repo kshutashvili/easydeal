@@ -3,12 +3,10 @@
 from __future__ import unicode_literals
 
 from django import forms
-from django.core import validators
 from django.utils.translation import ugettext_lazy as _
 
 from catalog.models import Property
 from catalog.models import District
-from landing.models import ChoiceInfo
 
 
 class CatalogFilterForm(forms.Form):
@@ -21,7 +19,7 @@ class CatalogFilterForm(forms.Form):
         required=False,
     )
     district = forms.ModelChoiceField(
-        queryset = District.objects.all(),
+        queryset=District.objects.all(),
         empty_label=None,
         widget=forms.Select(attrs={
             'class': 'filter-input',

@@ -3,8 +3,10 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from config.models import SiteConfiguration
 from catalog.models import Property
 from catalog.forms import CatalogFilterForm
+from catalog.utils import get_price_thb
 
 
 class PropertyDetailView(DetailView):
@@ -26,14 +28,18 @@ def catalog(request):
             params['property_type'] = request.GET['type']
         if 'district' in request.GET:
             params['district__id__in'] = request.GET.getlist(u'district')
-        if 'min_num_bedrooms' in request.GET and request.GET['min_num_bedrooms']:
+        if request.GET.get('min_num_bedrooms', None):
             params['number_of_bedrooms__gte'] = request.GET['min_num_bedrooms']
-        if 'max_num_bedrooms' in request.GET and request.GET['max_num_bedrooms']:
+        if request.GET.get('max_num_bedrooms', None):
             params['number_of_bedrooms__lte'] = request.GET['max_num_bedrooms']
-        if 'min_price' in request.GET and request.GET['min_price']:
-            params['price__gte'] = request.GET['min_price']
-        if 'max_price' in request.GET and request.GET['max_price']:
-            params['price__lte'] = request.GET['max_price']
+        if 'currency' in request.session:
+            currency = request.session['currency']
+            if 'min_price' in request.GET and request.GET['min_price']:
+                params['price__gte'] = get_price_thb(
+                    request.GET['min_price'], currency)
+            if 'max_price' in request.GET and request.GET['max_price']:
+                params['price__lte'] = get_price_thb(
+                    request.GET['max_price'], currency)
 
     property_list = Property.objects.filter(**params)
 
