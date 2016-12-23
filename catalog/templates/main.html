@@ -54,24 +54,7 @@
                     </div>
                     <div class="text-center m-t-35"><a href="{% url 'catalog:catalog' %}"><button class="btn-sbmt">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></a></div>
                 </div>
-                <div class="cur-block">
-                    <p class="block-h">СТАТЬИ И НОВОСТИ</p>
-                    <div class="row m-0">
-                        {% for article in articles %}
-                            <div class="col-sm-6 col-xs-12 wrap-nws">
-                                <a href="{% url 'landing:article' article.slug %}"><div class="perehod"></div></a>
-                                <div class="news-block">
-                                    <p class="news-title">{{ article.header }}</p>
-                                    <p class="news-date">{{ article.date }}</p>
-                                    <div class="news-text">
-                                        {{ article.text|safe|slice:":100" }}
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                    <div class="text-center m-t-35"><a href="{% url 'landing:articles' %}"><button class="btn-all">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></a></div>
-                </div>
+                {% include "articles_block.html" with articles=articles %}
             </div>
         </div>
 {% endblock %}

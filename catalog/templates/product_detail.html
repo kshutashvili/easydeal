@@ -37,33 +37,8 @@
             </div>
         </div>
     </div>
+    {% include "articles_block.html" with articles=articles page='product_detail' %}
 
-    <div class="cur-block state-news">
-        <p class="block-h">СТАТЬИ И НОВОСТИ</p>
-        <div class="row m-0">
-            <div class="col-sm-6 col-xs-12 wrap-nws">
-                <div class="perehod"></div>
-                <div class="news-block">
-                    <p class="news-title">Лучшие экскурсии на острове Пхукете</p>
-                    <p class="news-date">31 октября / 2016</p>
-                    <div class="news-text">
-                        Пхукет расположен у западного побережья Таиланда, в Андаманском море. Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами.
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-xs-12 wrap-nws">
-                <div class="perehod"></div>
-                <div class="news-block">
-                    <p class="news-title">Лучшие экскурсии на острове Пхукете этим летом</p>
-                    <p class="news-date">31 октября / 2016</p>
-                    <div class="news-text">
-                        Пхукет расположен у западного побережья Таиланда, в Андаманском море. Пхукет лидирует в списке крупнейших островов Таиланда. С материковой частью королевства остров соединён тремя мостами.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="text-center m-t-35"><button class="btn-all">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></div>
-    </div>
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/lightslider.js' %}"></script>

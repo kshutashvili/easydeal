@@ -3,10 +3,10 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from config.models import SiteConfiguration
 from catalog.models import Property
 from catalog.forms import CatalogFilterForm
 from catalog.utils import get_price_thb
+from landing.models import Article
 
 
 class PropertyDetailView(DetailView):
@@ -17,6 +17,8 @@ class PropertyDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(PropertyDetailView, self).get_context_data(**kwargs)
         context['filter_form'] = CatalogFilterForm(self.request.GET)
+        context['articles'] = Article.objects.filter(is_published=True) \
+            .order_by('-date')[:2]
         return context
 
 
