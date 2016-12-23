@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load catalog_extras %}
+{% load catalog_extras thumbnail %}
 
 {% block content %}
     <div class="search-result text-center">
@@ -11,7 +11,7 @@
             {% for property in properties %}
                 <div class="offer col-sm-6 col-xs-12">
 
-                    <img src="{{ property.get_title_image.image.url }}">
+                    <img src="{{ property.get_title_image.image|thumbnail_url:'catalog' }}">
                     <div class="bg_white-offer"></div>
                     <div class="offer-info">
                         <div>

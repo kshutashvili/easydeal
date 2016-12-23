@@ -159,6 +159,7 @@ LOCALE_PATHS = [
 THUMBNAIL_ALIASES = {
     '': {
         'thumbnail': {'size': (155, 103), 'crop': True},
+        'catalog': {'size': (536, 357), 'crop': True},
     },
 }
 
