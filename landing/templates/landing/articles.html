@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+
 {% block title %}
-    Статьи
+    {% trans 'Статьи' %}
 {% endblock title %}
 
 {% block content %}
 <div class="search-result text-center">
-         СТАТЬИ
+         {% trans 'СТАТЬИ' %}
     </div>
     <div class="catalog">
         <div class="row">

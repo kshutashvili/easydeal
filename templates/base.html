@@ -24,11 +24,11 @@
         <div class="slidebar">
             <p style="font-size: 30px; color: #fff;height: 50px" id="close-mobile-menu"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></p>
             <menu>
-                <a>ГЛАВНАЯ</a>
-                <a href="{% url 'landing:static_page' slug='about' %}">О НАС</a>
-                <a>ПОКУПКА НЕДВИЖИМОСТИ</a>
-                <a href="{% url 'landing:static_page' slug='invest-in-building' %}">ИНВЕСТИЦИИ В СТРОИТЕЛЬСТВО</a>
-                <a>КОНТАКТЫ</a>
+                <a>{% trans 'ГЛАВНАЯ' %}</a>
+                <a href="{% url 'landing:static_page' slug='about' %}">{% trans 'О НАС' %}</a>
+                <a>{% trans 'ПОКУПКА НЕДВИЖИМОСТИ' %}</a>
+                <a href="{% url 'landing:static_page' slug='invest-in-building' %}">{% trans 'ИНВЕСТИЦИИ В СТРОИТЕЛЬСТВО' %}</a>
+                <a>{% trans 'КОНТАКТЫ' %}</a>
             </menu>
                 
                 {% include 'language_chooser1.html' %}
@@ -38,11 +38,11 @@
         <!--END FOR SMALL SCREEN-->
         <div class="col-lg-7 col-md-9 hidden-xs hidden-sm">
             <menu>
-                <a href="/">ГЛАВНАЯ</a>|
-                <a href="{% url 'landing:static_page' slug='about' %}">О НАС</a>|
-                <a data-toggle="modal" data-target="#modal_search">ПОКУПКА НЕДВИЖИМОСТИ</a>|
-                <a href="{% url 'landing:static_page' slug='invest-in-building' %}">ИНВЕСТИЦИИ В СТРОИТЕЛЬСТВО</a>|
-                <a href="#user_contacts">КОНТАКТЫ</a>
+                <a href="/">{% trans 'ГЛАВНАЯ' %}</a>|
+                <a href="{% url 'landing:static_page' slug='about' %}">{% trans 'О НАС' %}</a>|
+                <a data-toggle="modal" data-target="#modal_search">{% trans 'ПОКУПКА НЕДВИЖИМОСТИ' %}</a>|
+                <a href="{% url 'landing:static_page' slug='invest-in-building' %}">{% trans 'ИНВЕСТИЦИИ В СТРОИТЕЛЬСТВО' %}</a>|
+                <a href="#user_contacts">{% trans 'КОНТАКТЫ' %}</a>
             </menu>
         </div>
 

@@ -1,19 +1,19 @@
-{% load sekizai_tags %}
+{% load sekizai_tags i18n %}
 
 <div class="filter-form">
     <form id="filter-form" method="GET" action="{% url "catalog:catalog" %}">
         <div class="row m-b-25">
             <div class="col-md-3 col-sm-6 filter-group">
-                <p for="{{ filter_form.type.id_for_label }}">Тип недвижимости</p>
+                <p for="{{ filter_form.type.id_for_label }}">{% trans 'Тип недвижимости' %}</p>
                 {{ filter_form.type.errors }}
                 {{ filter_form.type }}
             </div>
             <div class="col-md-3 col-sm-6 filter-group">
-                <p for="{{ filter_form.district.id_for_label }}">Район</p>
+                <p for="{{ filter_form.district.id_for_label }}">{% trans 'Район' %}</p>
                 {{ filter_form.district }}
             </div>
             <div class="col-md-3 col-sm-6 filter-group">
-                <p>Количество спален</p>
+                <p>{% trans 'Количество спален' %}</p>
                 <div class="row">
                     <div class="col-xs-6 filter-group">
                         {{ filter_form.min_num_bedrooms }}
@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="text-center">
-            <button type="submit" class="btn-sbmt">ПОДОБРАТЬ</button>
+            <button type="submit" class="btn-sbmt">{% trans 'ПОДОБРАТЬ' %}</button>
         </div>
     </form>
 </div>

@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% load catalog_extras thumbnail %}
+{% load catalog_extras thumbnail i18n %}
 
 {% block content %}
     <div class="search-result text-center">
-        ВСЕГО НАЙДЕНО ОБЪЕКТОВ <span class="red-color">{{ property_list.count }}</span>
+        {% trans 'ВСЕГО НАЙДЕНО ОБЪЕКТОВ' %} <span class="red-color">{{ property_list.count }}</span>
     </div>
     <div class="catalog">
         <div class="row">
@@ -16,7 +16,7 @@
                     <div class="offer-info">
                         <div>
                             <p class="offer-title">{{ property.name }}</p>
-                            <p>{{ property.get_property_type_display  }}<br>комнат: {{ property.number_of_bedrooms }}</p>
+                            <p>{{ property.get_property_type_display  }}<br>{% trans 'комнат' %}: {{ property.number_of_bedrooms }}</p>
                         </div>
                         <div class="offer-price">
                             <span class="price">{{ property|get_price:request }}</span>

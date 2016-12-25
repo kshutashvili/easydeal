@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load static solo_tags thumbnail %}
+{% load static solo_tags thumbnail i18n %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/all.css' %}">
@@ -32,7 +32,7 @@
                     </p>
                 </div>
                 <div class="cur-block">
-                    <p class="block-h red-color">ГОРЯЧИЕ ПРЕДЛОЖЕНИЯ</p>
+                    <p class="block-h red-color">{% trans 'ГОРЯЧИЕ ПРЕДЛОЖЕНИЯ' %}</p>
                     <div class="row fire-offer">
                         {% if hot_property %}
                             {% for property in hot_property %}
@@ -52,7 +52,7 @@
                             {% endfor %}
                         {% endif %}
                     </div>
-                    <div class="text-center m-t-35"><a href="{% url 'catalog:catalog' %}"><button class="btn-sbmt">ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ</button></a></div>
+                    <div class="text-center m-t-35"><a href="{% url 'catalog:catalog' %}"><button class="btn-sbmt">{% trans 'ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ' %}</button></a></div>
                 </div>
                 {% include "articles_block.html" with articles=articles %}
             </div>

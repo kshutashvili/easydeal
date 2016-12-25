@@ -1,20 +1,20 @@
-{% load static catalog_extras %}
+{% load static catalog_extras i18n %}
 <form action="{% url 'catalog:catalog' %}" method="get">
 <div class="modal-content pos-0 active" id="pos-0" position="0">
     <div class="modal-header ">
         <div class="button-block">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
-        <p class="modal-title">позвольте нам сделать ваш выбор легче!</p>
+        <p class="modal-title">{% trans 'позвольте нам сделать ваш выбор легче' %}!</p>
     </div>
     <div class="modal-body">
-        <p class="modal-title red-color text-center p-b-25 p-t-25">Что вас инересует?</p>
+        <p class="modal-title red-color text-center p-b-25 p-t-25">{% trans 'Что вас инересует' %}?</p>
         <div class="interest fire-offer text-center">
             <div class="offer-block">
                 <img class="offer-img" src="{% static 'images/window-disp/link1.png' %}">
                 <div class="offer-decrption">
                     <div class="hotel-title">
-                        Инвестиции в строительство
+                        {% trans 'Инвестиции в строительство' %}
                     </div>
                     <div class="continue next-w" next="#pos-4"></div>
                 </div>
@@ -23,7 +23,7 @@
                 <img class="offer-img" src="{% static 'images/window-disp/link2.png' %}">
                 <div class="offer-decrption">
                     <div class="hotel-title">
-                        Покупка недвижимости
+                        {% trans 'Покупка недвижимости' %}
                     </div>
                     <div class="continue next-w" next="#pos-1"></div>
                 </div>
@@ -38,19 +38,19 @@
             <button type="button" class="continue continue-prev prev-w"></button>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
-        <p class="modal-title red-color">Какова цель вашей покупки?</p>
+        <p class="modal-title red-color">{% trans 'Какова цель вашей покупки' %}?</p>
     </div>
     <div class="modal-body">
         <div class="text-center f-0 p-b-25">
             <select class="target" next="#pos-2">
-                <option value="Проживание">Проживание</option>
-                <option value="Инвестиция + Проживание">Инвестиция + Проживание</option>
-                <option value="Инвестиция">Инвестиция</option>
+                <option value="Проживание">{% trans 'Проживание' %}</option>
+                <option value="Инвестиция + Проживание">{% trans 'Инвестиция' %} + {% trans 'Проживание' %}</option>
+                <option value="Инвестиция">{% trans 'Инвестиция' %}</option>
             </select>
         </div>
         {% if targets_info %}
             <div class="text-center">
-                <button type="button" class="btn-sbmt next-w" next="#pos-5">В ЧЕМ РАЗНИЦА?</button>
+                <button type="button" class="btn-sbmt next-w" next="#pos-5">{% trans 'В ЧЕМ РАЗНИЦА' %}?</button>
             </div>
         {% endif %}
     </div>
@@ -62,10 +62,10 @@
             <button type="button" class="continue continue-prev prev-w"></button>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
-        <p class="modal-title red-color">Какой район вы предпочитаете?</p>
+        <p class="modal-title red-color">{% trans 'Какой район вы предпочитаете' %}?</p>
     </div>
     <div class="modal-body">
-        <p class="text-center p-b-20">Можно выбрать несколько районов</p>
+        <p class="text-center p-b-20">{% trans 'Можно выбрать несколько районов' %}</p>
         <div class="text-center">
             <div>
                 {% for district in districts %}
@@ -76,10 +76,10 @@
         </div>
         <div class="text-center p-t-25">
             {% if districts_info %}
-                <button type="button" class="btn-sbmt next-w " next="#pos-6">В ЧЕМ РАЗНИЦА?</button>
+                <button type="button" class="btn-sbmt next-w " next="#pos-6">{% trans 'В ЧЕМ РАЗНИЦА' %}?</button>
             {% endif %}
             <div class="target-block">
-                <div class="target-text">Далее</div><div class="continue next-w" next="#pos-3"></div>
+                <div class="target-text">{% trans 'Далее' %}</div><div class="continue next-w" next="#pos-3"></div>
             </div>
         </div>
     </div>
@@ -91,7 +91,7 @@
             <button type="button" class="continue continue-prev prev-w"></button>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
-        <p class="modal-title red-color">Какой тип недвижимости вы ищете?</p>
+        <p class="modal-title red-color">{% trans 'Какой тип недвижимости вы ищете' %}?</p>
     </div>
     <div class="modal-body">
         <div class="text-center f-0 p-b-25">
@@ -103,7 +103,7 @@
         </div>
         <div class="text-center">
             {% if property_types_info %}
-                <button type="button" class="btn-sbmt next-w" next="#pos-7">В ЧЕМ РАЗНИЦА?</button>
+                <button type="button" class="btn-sbmt next-w" next="#pos-7">{% trans 'В ЧЕМ РАЗНИЦА' %}?</button>
             {% endif %}
         </div>
     </div>
@@ -121,7 +121,7 @@
         <div class="f-11">
             {{ invest.content|safe }}
         </div>
-        <div class="text-center p-t-25"><div class="target-block"><div class="target-text">ВЕРНУТЬСЯ К ПОИСКУ</div><div class="continue prev-w"></div></div></div>
+        <div class="text-center p-t-25"><div class="target-block"><div class="target-text">{% trans 'ВЕРНУТЬСЯ К ПОИСКУ' %}</div><div class="continue prev-w"></div></div></div>
     </div>
 </div>
 {% if targets_info %}
@@ -137,7 +137,7 @@
             <div class="f-11">
                 {{ targets_info.text|safe }}
             </div>
-            <div class="text-center p-t-25"><div class="target-block"><div class="target-text">ВЕРНУТЬСЯ К ПОИСКУ</div><div class="continue prev-w"></div></div></div>
+            <div class="text-center p-t-25"><div class="target-block"><div class="target-text">{% trans 'ВЕРНУТЬСЯ К ПОИСКУ' %}</div><div class="continue prev-w"></div></div></div>
         </div>
     </div>
 {% endif %}
@@ -155,7 +155,7 @@
             <div class="f-11">
                 {{ districts_info.text|safe }}
             </div>
-            <div class="text-center p-t-25"><div class="target-block"><div class="target-text">ВЕРНУТЬСЯ К ПОИСКУ</div><div class="continue prev-w"></div></div></div>
+            <div class="text-center p-t-25"><div class="target-block"><div class="target-text">{% trans 'ВЕРНУТЬСЯ К ПОИСКУ' %}</div><div class="continue prev-w"></div></div></div>
         </div>
     </div>
 {% endif %}
@@ -173,7 +173,7 @@
             <div class="f-11">
                 {{ property_types_info.text|safe }}
             </div>
-            <div class="text-center p-t-25"><div class="target-block"><div class="target-text">ВЕРНУТЬСЯ К ПОИСКУ</div><div class="continue prev-w"></div></div></div>
+            <div class="text-center p-t-25"><div class="target-block"><div class="target-text">{% trans 'ВЕРНУТЬСЯ К ПОИСКУ' %}</div><div class="continue prev-w"></div></div></div>
         </div>
     </div>
 {% endif %}

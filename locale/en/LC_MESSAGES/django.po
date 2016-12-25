@@ -1,0 +1,396 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-25 17:14+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: catalog/forms.py:16
+msgid "Все"
+msgstr "All"
+
+#: catalog/forms.py:31 catalog/forms.py:45
+msgid "От"
+msgstr "From"
+
+#: catalog/forms.py:38 catalog/forms.py:52
+msgid "До"
+msgstr "To"
+
+#: catalog/models.py:16 catalog/models.py:20 catalog/models.py:60
+#: catalog/templates/filter_form.html:12 landing/models.py:68
+msgid "Район"
+msgstr "District"
+
+#: catalog/models.py:17
+msgid "Районы"
+msgstr "Districts"
+
+#: catalog/models.py:30
+msgid "Фотография недвижимости"
+msgstr "Property photo"
+
+#: catalog/models.py:31
+msgid "Фотографии недвижимости"
+msgstr "Property photos"
+
+#: catalog/models.py:35 landing/models.py:24
+msgid "Фото"
+msgstr "Photo"
+
+#: catalog/models.py:45 catalog/models.py:46 landing/models.py:106
+msgid "Недвижимость"
+msgstr "Property"
+
+#: catalog/models.py:49
+msgid "Кондоминиум"
+msgstr "Condominium"
+
+#: catalog/models.py:50
+msgid "Таунхаус"
+msgstr "Townhouse"
+
+#: catalog/models.py:51
+msgid "Вилла"
+msgstr "Villa"
+
+#: catalog/models.py:54 catalog/templates/filter_form.html:7
+#: landing/models.py:72
+msgid "Тип недвижимости"
+msgstr "Property type"
+
+#: catalog/models.py:59 landing/models.py:95
+msgid "Имя"
+msgstr "Name"
+
+#: catalog/models.py:63
+msgid "Расстояние до пляжа"
+msgstr "The distance to the beach"
+
+#: catalog/models.py:66
+msgid "Площадь"
+msgstr "Area"
+
+#: catalog/models.py:70 catalog/templates/filter_form.html:16
+msgid "Количество спален"
+msgstr "Number of bedrooms"
+
+#: catalog/models.py:74
+msgid "Информация о дополнительных сооружениях"
+msgstr "Information about the additional facilities"
+
+#: catalog/models.py:79
+msgid "Цена"
+msgstr "Price"
+
+#: catalog/models.py:84
+msgid "Горячее"
+msgstr "Hot"
+
+#: catalog/models.py:88
+msgid "Дата завершения строительства"
+msgstr "Completion"
+
+#: catalog/models.py:90
+msgid "Имеет значение только месяц и год. День можно указать любой."
+msgstr "What matters is only the month and year. The day can be any."
+
+#: catalog/templates/articles_block.html:9
+msgid "СТАТЬИ И НОВОСТИ"
+msgstr "ARTICLES AND NEWS"
+
+#: catalog/templates/articles_block.html:24 catalog/templates/main.html:55
+msgid "ПОСМОТРЕТЬ ВСЕ ВАРИАНТЫ"
+msgstr "SEE ALL OPTIONS"
+
+#: catalog/templates/catalog.html:7
+msgid "ВСЕГО НАЙДЕНО ОБЪЕКТОВ"
+msgstr "JUST FOUND OBJECTS"
+
+#: catalog/templates/catalog.html:19
+msgid "комнат"
+msgstr "rooms"
+
+#: catalog/templates/filter_form.html:39
+msgid "ПОДОБРАТЬ"
+msgstr "CHOOSE"
+
+#: catalog/templates/main.html:35
+msgid "ГОРЯЧИЕ ПРЕДЛОЖЕНИЯ"
+msgstr "HOT DEALS"
+
+#: catalog/templates/modal_window.html:8
+msgid "позвольте нам сделать ваш выбор легче"
+msgstr "allow us to make your choice easier"
+
+#: catalog/templates/modal_window.html:11
+msgid "Что вас инересует"
+msgstr "What are you interested in"
+
+#: catalog/templates/modal_window.html:17
+msgid "Инвестиции в строительство"
+msgstr "Investments in construction"
+
+#: catalog/templates/modal_window.html:26
+msgid "Покупка недвижимости"
+msgstr "Buying a property"
+
+#: catalog/templates/modal_window.html:41
+msgid "Какова цель вашей покупки"
+msgstr "What is the purpose of your purchase"
+
+#: catalog/templates/modal_window.html:46
+#: catalog/templates/modal_window.html:47
+msgid "Проживание"
+msgstr "Accommodation"
+
+#: catalog/templates/modal_window.html:47
+#: catalog/templates/modal_window.html:48
+msgid "Инвестиция"
+msgstr "Investment"
+
+#: catalog/templates/modal_window.html:53
+#: catalog/templates/modal_window.html:79
+#: catalog/templates/modal_window.html:106
+msgid "В ЧЕМ РАЗНИЦА"
+msgstr "WHAT IS THE DIFFERENCE"
+
+#: catalog/templates/modal_window.html:65
+msgid "Какой район вы предпочитаете"
+msgstr "Which area you prefer"
+
+#: catalog/templates/modal_window.html:68
+msgid "Можно выбрать несколько районов"
+msgstr "You can select multiple areas"
+
+#: catalog/templates/modal_window.html:82
+msgid "Далее"
+msgstr "Further"
+
+#: catalog/templates/modal_window.html:94
+msgid "Какой тип недвижимости вы ищете"
+msgstr "What type of property you are looking for"
+
+#: catalog/templates/modal_window.html:124
+#: catalog/templates/modal_window.html:140
+#: catalog/templates/modal_window.html:158
+#: catalog/templates/modal_window.html:176
+msgid "ВЕРНУТЬСЯ К ПОИСКУ"
+msgstr "BACK TO SEARCH"
+
+#: catalog/templates/product_detail.html:4
+msgid "Каталог"
+msgstr "Catalog"
+
+#: catalog/templates/product_detail.html:14
+msgid "апартаменты класса люкс"
+msgstr "luxury apartments"
+
+#: catalog/templates/product_detail.html:16
+msgid "район"
+msgstr "district"
+
+#: catalog/templates/product_detail.html:17
+msgid "завершение строительства"
+msgstr "construction completion"
+
+#: catalog/templates/product_detail.html:18
+msgid "расстояние до пляжа"
+msgstr "distance to the beach"
+
+#: catalog/templates/product_detail.html:18
+msgid "км"
+msgstr "km"
+
+#: catalog/templates/product_detail.html:19
+msgid "общая площадь"
+msgstr "common area"
+
+#: catalog/templates/product_detail.html:19
+msgid "м"
+msgstr "m"
+
+#: catalog/templates/product_detail.html:20
+msgid "количество спален"
+msgstr "number of bedrooms"
+
+#: catalog/templates/product_detail.html:27
+msgid "ПЕРЕПРОДАЖА"
+msgstr "RESALE"
+
+#: catalog/templates/user_contact.html:4
+msgid "Свяжитесь с нами"
+msgstr "Contact us"
+
+#: catalog/templates/user_contact.html:5
+msgid "сейчас"
+msgstr "now"
+
+#: config/models.py:14
+msgid "Конфигурация сайта"
+msgstr "Site Configuration"
+
+#: config/models.py:17 landing/models.py:20 landing/models.py:129
+msgid "Заголовок"
+msgstr "Header"
+
+#: config/models.py:21 landing/models.py:28
+msgid "Текст"
+msgstr "Text"
+
+#: config/models.py:25
+msgid "О целях покупки"
+msgstr "About to buy"
+
+#: config/models.py:32
+msgid "О районах"
+msgstr "About to districts"
+
+#: config/models.py:39
+msgid "О типах недвижимости"
+msgstr "Property types"
+
+#: config/models.py:45
+msgid "Курс доллара к бату"
+msgstr "The dollar against the baht"
+
+#: config/models.py:51
+msgid "Курс евро к бату"
+msgstr "The euro against the baht"
+
+#: config/models.py:57
+msgid "Курс рубля к бату"
+msgstr "The ruble against the baht"
+
+#: easydeal/settings.py:133
+msgid "Русский"
+msgstr "Russian"
+
+#: easydeal/settings.py:134
+msgid "Английский"
+msgstr "English"
+
+#: landing/forms.py:15
+msgid "имя"
+msgstr "name"
+
+#: landing/forms.py:17
+msgid "телефон"
+msgstr "phone"
+
+#: landing/forms.py:18
+msgid "e-mail"
+msgstr "e-mail"
+
+#: landing/models.py:16
+msgid "Статья"
+msgstr "Article"
+
+#: landing/models.py:17 landing/templates/landing/articles.html:6
+msgid "Статьи"
+msgstr "Articles"
+
+#: landing/models.py:33
+msgid "Slug"
+msgstr "Slug"
+
+#: landing/models.py:38 landing/models.py:101
+msgid "Дата"
+msgstr "Date"
+
+#: landing/models.py:55
+msgid "Данные о выборе пользователя"
+msgstr "Information about user choice"
+
+#: landing/models.py:56
+msgid "Данные о выборе пользователей"
+msgstr "Information about the choice of users"
+
+#: landing/models.py:59
+msgid "Интересует ли проживание"
+msgstr "Whether interest accommodation"
+
+#: landing/models.py:63
+msgid "Интересуют ли инвестиции"
+msgstr "Whether interest investment"
+
+#: landing/models.py:78
+msgid "Время последнего обновления"
+msgstr "Date a last upadte"
+
+#: landing/models.py:92
+msgid "Контакты пользователя"
+msgstr "Contact user"
+
+#: landing/models.py:93
+msgid "Контакты пользователей"
+msgstr "Users contacts"
+
+#: landing/models.py:97
+msgid "Номер телефона"
+msgstr "Phone number"
+
+#: landing/models.py:100
+msgid "Email"
+msgstr "Email"
+
+#: landing/models.py:110
+msgid "Данные о выборе"
+msgstr "Information about the choice"
+
+#: landing/models.py:125
+msgid "Простая страница"
+msgstr "Simple page"
+
+#: landing/models.py:126
+msgid "Простые страницы"
+msgstr "Simple pages"
+
+#: landing/models.py:133
+msgid "Содержание"
+msgstr "Content"
+
+#: landing/models.py:136
+msgid "URL адрес"
+msgstr "URL address"
+
+#: landing/templates/landing/article.html:11
+#: landing/templates/landing/articles.html:11
+msgid "СТАТЬИ"
+msgstr "ARTICLES"
+
+#: landing/templates/landing/article.html:24
+msgid "ВЕРНУТЬСЯ К СТАТЬЯМ"
+msgstr "BACK TO ARTICLES"
+
+#: templates/base.html:27 templates/base.html:41
+msgid "ГЛАВНАЯ"
+msgstr "MAIN"
+
+#: templates/base.html:28 templates/base.html:42
+msgid "О НАС"
+msgstr "ABOUT US"
+
+#: templates/base.html:29 templates/base.html:43
+msgid "ПОКУПКА НЕДВИЖИМОСТИ"
+msgstr "BUYING A PROPERTY"
+
+#: templates/base.html:30 templates/base.html:44
+msgid "ИНВЕСТИЦИИ В СТРОИТЕЛЬСТВО"
+msgstr "INVESTMENT IN CONSTRUCTION"
+
+#: templates/base.html:31 templates/base.html:45
+msgid "КОНТАКТЫ"
+msgstr "CONTACTS"

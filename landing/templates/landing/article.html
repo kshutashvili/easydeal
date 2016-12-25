@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+
 {% block title %}
 	{{ article.header }}
 {% endblock title %}
 
 {% block content %}
 	<div class="search-result text-center">
-        СТАТЬИ
+        {% trans 'СТАТЬИ' %}
     </div>
     <div class="full_news-detail">
         <div class="full_news_header">
@@ -19,7 +21,7 @@
     </div>
     <div class="text-center m-t-55 m-b-35">
         <div class="target-block">
-        	<div class="target-text-border">ВЕРНУТЬСЯ К СТАТЬЯМ</div>
+        	<div class="target-text-border">{% trans 'ВЕРНУТЬСЯ К СТАТЬЯМ' %}</div>
         	<a href="#"><div class="continue prev-w"></div></a>
         </div>
     </div>
