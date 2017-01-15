@@ -23,10 +23,11 @@ class PropertyAdmin(TabbedTranslationAdmin):
     )
     list_filter = ['property_type']
     inlines = [PropertyPhotoInline]
-    
+
 
 class DistrictAdmin(TabbedTranslationAdmin):
     pass
+
 
 admin.site.register(District, DistrictAdmin)
 admin.site.register(Property, PropertyAdmin)

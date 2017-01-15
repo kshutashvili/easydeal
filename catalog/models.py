@@ -50,6 +50,10 @@ class Property(models.Model):
         ('t', _(u'Таунхаус')),
         ('v', _(u'Вилла')),
     )
+    STATUS = (
+        ('n', _(u'New')),
+        ('r', _(u'Resale')),
+    )
     property_type = models.CharField(
         verbose_name=_('Тип недвижимости'),
         max_length=2,
@@ -89,6 +93,12 @@ class Property(models.Model):
         help_text=_(
             'Имеет значение только месяц и год. День можно указать любой.'
         )
+    )
+    new_resale = models.CharField(
+        verbose_name=_('New/Resale'),
+        choices=STATUS,
+        max_length=1,
+        default='n',
     )
 
     def __unicode__(self):
