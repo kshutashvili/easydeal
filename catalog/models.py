@@ -63,8 +63,10 @@ class Property(models.Model):
     name = models.CharField(verbose_name=_(u'Имя'), max_length=100)
     district = models.ForeignKey(District, null=True, verbose_name=_('Район'))
     # means in square meters
-    distance_to_beach = models.PositiveIntegerField(
-        verbose_name=_('Расстояние до пляжа')
+    distance_to_beach = models.DecimalField(
+        verbose_name=_('Расстояние до пляжа'),
+        max_digits=10,
+        decimal_places=2
     )
     space = models.PositiveIntegerField(
         verbose_name=_('Площадь'),
@@ -76,7 +78,6 @@ class Property(models.Model):
     # information about additional facilities
     additional_info = models.TextField(
         verbose_name=_('Информация о дополнительных сооружениях'),
-        max_length=200,
         blank=True
     )
     price = models.DecimalField(
