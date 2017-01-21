@@ -62,23 +62,6 @@
                 }
             });
 
-            $('select').niceSelect();
-
         });
-        $("header").outerHeight($(".slider").height());
-        $('.carousel').carousel();
-
-        $("#mobile-menu").on("click",function () {
-            $(".slidebar").css({"left":"0px"});
-        });
-
-        $("#close-mobile-menu").on("click", function () {
-            $(".slidebar").css({"left":-1*$(".slidebar").outerWidth()+"px"})
-        });
-
-        $(document).resize(function () {
-            alert("resize");
-            $("header").outerHeight($(".slider").height());
-        })
     </script>
 {% endblock %}

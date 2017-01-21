@@ -2,10 +2,6 @@
 
 {% load static solo_tags thumbnail i18n %}
 
-{% block css %}
-    <link rel="stylesheet" href="{% static 'css/all.css' %}">
-{% endblock %}
-
 {% block content %}
         <div class="">
             <!--MAP BEGIN-->
@@ -57,53 +53,4 @@
                 {% include "articles_block.html" with articles=articles %}
             </div>
         </div>
-{% endblock %}
-
-
-{% block js %}
-    <script src="{% static 'js/targetselect.js' %}"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('select:not(.target)').niceSelect();
-            $('.target').targetSelect();
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_minimal',
-                radioClass: 'iradio_minimal',
-            });
-
-            $(".next-w").on("click", function () {
-                var nextw = $(this).attr("next");
-                $(".modal-content.active").removeClass("active");
-                $(nextw).addClass("active");
-                var next_prev = $(nextw).find(".prev-w");
-                next_prev.attr('prev', "#"+$(this).parents(".modal-content").attr("id"));
-            }) ;
-            $(".prev-w").on("click", function () {
-                var prevw = $(this).attr("prev");
-                $(".modal-content.active").removeClass("active");
-                $(prevw).addClass("active");
-            });
-
-            if (!$.cookie("isShow")) {
-                $("#modal_search").modal("show");
-                $.cookie("isShow", 1, {expires: 10, path: '/'});
-            }
-
-        });
-        $("header").outerHeight($(".slider").height());
-        $('.carousel').carousel();
-
-        $("#mobile-menu").on("click",function () {
-            $(".slidebar").css({"left":"0px"});
-        });
-
-        $("#close-mobile-menu").on("click", function () {
-            $(".slidebar").css({"left":-1*$(".slidebar").outerWidth()+"px"})
-        });
-
-        $(document).resize(function () {
-            alert("resize");
-            $("header").outerHeight($(".slider").height());
-        })
-    </script>
 {% endblock %}
