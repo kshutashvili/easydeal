@@ -9,7 +9,7 @@ from .models import Article, UserContacts, ChoiceInfo, StaticPage
 
 
 class ArticleAdmin(TabbedTranslationAdmin):
-    pass
+    prepopulated_fields = {'slug': ('header',)}
 
 
 class UserContactsAdmin(admin.ModelAdmin):
