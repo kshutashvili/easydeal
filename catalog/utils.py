@@ -1,9 +1,8 @@
 from config.models import SiteConfiguration
 
-config = SiteConfiguration.get_solo()
-
 
 def get_price_currency(price, currency):
+    config = SiteConfiguration.get_solo()
     if currency == 'USD':
         result_price = price * config.usd_rate
     elif currency == 'EUR':
@@ -16,6 +15,7 @@ def get_price_currency(price, currency):
 
 
 def get_price_thb(price, currency):
+    config = SiteConfiguration.get_solo()
     if currency == 'USD':
         result_price = float(price) / float(config.usd_rate)
     elif currency == 'EUR':
