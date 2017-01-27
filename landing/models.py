@@ -26,7 +26,6 @@ class Article(models.Model):
     )
     text = RichTextField(
         verbose_name=_('Текст'),
-        max_length=200,
         blank=False
     )
     slug = models.SlugField(
