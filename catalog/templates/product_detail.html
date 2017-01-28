@@ -13,12 +13,12 @@
             </p>
             <p class="full-offer-apart">{% trans 'апартаменты класса люкс' %}</p>
             <div class="full-offer-charact">
-                <p>{% trans 'район' %}: <span class="red-color">{{ property.district }}</span></p>
-                <p>{% trans 'завершение строительства' %}: <span class="red-color"><nobr>{{ property.end_building|date:'F'|lower }}</nobr> {{ property.end_building|date:'Y' }}</span></p>
-                <p>{% trans 'расстояние до пляжа' %}: <span class="red-color">{{ property.distance_to_beach }} {% trans 'км' %}</span></p>
-                <p>{% trans 'общая площадь' %}: <span class="red-color">{{ property.space }} {% trans 'м' %}<sup>2</sup></span></p>
-                <p>{% trans 'количество спален' %}: <span class="red-color">{{ property.number_of_bedrooms }}</span></p>
-                <p>{{ property.additional_info }}</p>
+                <p>{% trans 'Район' %}: <span class="red-color">{{ property.district }}</span></p>
+                <p>{% trans 'Завершение строительства' %}: <span class="red-color"><nobr>{{ property.end_building|date:'F'|lower }}</nobr> {{ property.end_building|date:'Y' }}</span></p>
+                <p>{% trans 'Расстояние до пляжа' %}: <span class="red-color">{{ property.distance_to_beach }} {% trans 'км' %}</span></p>
+                <p>{% trans 'Общая площадь' %}: <span class="red-color">{{ property.space }} {% trans 'м' %}<sup>2</sup></span></p>
+                <p>{% trans 'Количество спален' %}: <span class="red-color">{{ property.number_of_bedrooms }}</span></p>
+                <p>{{ property.additional_info|linebreaksbr }}</p>
             </div>
             <div class="full-offer-price col-sm-4 col-xs-12 "><button class="btn-sbmt">{{ property|get_price:request }}</button></div>
         </div>
