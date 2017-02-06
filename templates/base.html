@@ -113,7 +113,8 @@
                 $(nextw).addClass("active");
                 var next_prev = $(nextw).find(".prev-w");
                 next_prev.attr('prev', "#"+$(this).parents(".modal-content").attr("id"));
-            }) ;
+            });
+
             $(".prev-w").on("click", function () {
                 var prevw = $(this).attr("prev");
                 $(".modal-content.active").removeClass("active");
@@ -138,7 +139,6 @@
         });
 
         $(document).resize(function () {
-            alert("resize");
             $("header").outerHeight($(".slider").height());
         })
     </script>

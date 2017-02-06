@@ -882,7 +882,8 @@ header {
 
 .modal-content.active {
   left: 0px;
-  top: 0px; }
+  top: 0px;
+  opacity: 1; }
 
 .modal-dialog {
   width: 964px !important;
@@ -893,9 +894,10 @@ header {
   height: 100%;
   overflow: hidden;
   position: absolute !important;
-  left: -110%;
-  top: 0;
+  left: 0;
+  top: 110%;
   width: 100%;
+  opacity: 0;
   -webkit-transition: all 0.8s ease-in-out;
   transition: all 0.8s ease-in-out;
   -webkit-user-select: none;

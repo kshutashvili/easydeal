@@ -1058,7 +1058,8 @@ header{
 
 .modal-content.active{
   left: 0px;
-  top: 0px
+  top: 0px;
+  opacity:1;
 }
 
 .modal-dialog{
@@ -1072,9 +1073,10 @@ header{
   height: 100%;
   overflow: hidden;
   position: absolute !important;
-  left: -110%;
-  top: 0;
+  left: 0;
+  top: 110%;
   width: 100%;
+  opacity: 0;
   @include animation(0.8s);
 
   .btn-sbmt:hover{
