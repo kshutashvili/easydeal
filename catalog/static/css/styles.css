@@ -269,7 +269,7 @@ header {
     width: 11px;
     height: 11px;
     border-radius: 30px;
-    background-color: #A1A8AA;
+    background-color: #a62424;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     -webkit-user-select: none;
@@ -826,9 +826,7 @@ header {
       position: absolute;
       right: 0;
       top: 0;
-      z-index: 1000;
-      min-width: 70px;
-      text-align: center;}
+      z-index: 1000; }
   .full-offer p {
     margin: 0px; }
   .full-offer .btn-sbmt {
@@ -1225,7 +1223,8 @@ header {
   justify-content: center; }
   .contact-info .contact-email {
     font-size: 15px;
-    margin-left: 20px; }
+    margin-left: 20px;
+    border-bottom: 1px solid #fff; }
   .contact-info .razdelitel {
     font-size: 0px;
     border-left: 2px solid #fff;

@@ -35,8 +35,8 @@ $content-padding: 0px 230px;
 }
 
 @font-face {
-  font-family: Verdana; /* Гарнитура шрифта */
-  src: url(../fonts/verdana.ttf); /* Путь к файлу со шрифтом */
+  font-family: Verdana;
+  src: url(../fonts/verdana.ttf);
 }
 
 .content-padding{
@@ -355,7 +355,7 @@ header{
     width: 11px;
     height: 11px;
     border-radius: 30px;
-    background-color: #A1A8AA;
+    background-color: $red_color;
     @include animation(0.2s);
   }
 

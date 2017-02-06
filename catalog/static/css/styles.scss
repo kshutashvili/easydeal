@@ -375,7 +375,7 @@ header{
     width: 11px;
     height: 11px;
     border-radius: 30px;
-    background-color: #A1A8AA;
+    background-color: $red_color;
     @include animation(0.2s);
   }
 
