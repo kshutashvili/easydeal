@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% load static solo_tags thumbnail i18n %}
-
+{% load catalog_extras %}
 {% block content %}
         <div class="">
             <!--MAP BEGIN-->
@@ -39,7 +39,7 @@
                                     <div class="offer-decrption">
                                         <div class="hotel-title">
                                             <p class="hotel-name">{{ property.name }}</p>
-                                            <p class="hotel-info">{{ property.additional_info }}</p>
+                                            <p class="hotel-info">{{ property|get_price:request }}</p>
                                         </div>
                                         <a href="{% url 'catalog:detail' property.id %}"><div class="continue"></div></a>
                                     </div>
