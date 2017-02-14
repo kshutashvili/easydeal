@@ -18,11 +18,11 @@ def get_price(property, request):
     if 'currency' in request.session:
         currency = request.session['currency']
         result_price = '{} {}'.format(
-            str(floatformat(get_price_currency(price, currency))),
+            '{0:,.0f}'.format(get_price_currency(price, currency)).replace(',', ' '),
             currency,
         )
     else:
-        result_price = str(floatformat(price)) + ' THB'
+        result_price = '{0:,.0f}'.format(price).replace(',', ' ') + ' THB'
     return result_price
 
 
