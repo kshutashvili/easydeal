@@ -826,7 +826,10 @@ header {
       position: absolute;
       right: 0;
       top: 0;
-      z-index: 1000; }
+      z-index: 1000;
+      min-width: 70px;
+      text-align: center;
+    }
   .full-offer p {
     margin: 0px; }
   .full-offer .btn-sbmt {
