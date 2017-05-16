@@ -11,6 +11,20 @@ def property_directory_path(instance, photo):
     return 'catalog/%s/%s' % (instance.property_id, photo)
 
 
+class PropertyQuality(models.Model):
+    class Meta:
+        verbose_name = _('Класс недвижимости')
+        verbose_name_plural = _('Классы недвижимости')
+
+    name = models.CharField(
+        verbose_name=_('Название'),
+        max_length=250
+    )
+
+    def __unicode__(self):
+        return self.name
+
+
 class District(models.Model):
     class Meta:
         verbose_name = _('Район')
@@ -62,6 +76,8 @@ class Property(models.Model):
     )
     name = models.CharField(verbose_name=_(u'Имя'), max_length=100)
     district = models.ForeignKey(District, null=True, verbose_name=_('Район'))
+    quality = models.ForeignKey(PropertyQuality, null=True, blank=True,
+                                verbose_name=_('Класс'))
     # means in square meters
     distance_to_beach = models.DecimalField(
         verbose_name=_('Расстояние до пляжа'),

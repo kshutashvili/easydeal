@@ -11,7 +11,7 @@
             <p class="full-offer-title">
                 {{ property.name }}
             </p>
-            <p class="full-offer-apart">{% trans 'апартаменты класса люкс' %}</p>
+            <p class="full-offer-apart">{% if property.quality %} {{ property.quality }} {% endif %}</p>
             <div class="full-offer-charact">
                 <p>{% trans 'Район' %}: <span class="red-color">{{ property.district }}</span></p>
                 <p>{% trans 'Завершение строительства' %}: <span class="red-color"><nobr>{{ property.end_building|date:'F'|lower }}</nobr> {{ property.end_building|date:'Y' }}</span></p>

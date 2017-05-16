@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from modeltranslation.admin import TabbedTranslationAdmin
 
-from .models import District, Property, PropertyPhoto
+from .models import District, Property, PropertyPhoto, PropertyQuality
 
 
 class PropertyPhotoInline(admin.TabularInline):
@@ -29,5 +29,10 @@ class DistrictAdmin(TabbedTranslationAdmin):
     pass
 
 
+class PropertyQualityAdmin(TabbedTranslationAdmin):
+    pass
+
+
+admin.site.register(PropertyQuality, PropertyQualityAdmin)
 admin.site.register(District, DistrictAdmin)
 admin.site.register(Property, PropertyAdmin)
